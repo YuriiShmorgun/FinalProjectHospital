@@ -1,3 +1,8 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+<%@ page isELIgnored="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: Yurii
@@ -11,6 +16,12 @@
     <title>Title</title>
 </head>
 <body>
- Add User
+
+
 </body>
 </html>
+
+
+
+
+<%--16--%>

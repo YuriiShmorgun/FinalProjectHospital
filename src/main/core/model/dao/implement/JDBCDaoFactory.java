@@ -1,0 +1,75 @@
+package model.dao.implement;
+
+import model.dao.*;
+import model.dao.implement.connectionPool.ConnectionPoolHolder;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class JDBCDaoFactory extends DaoFactory {
+
+    private DataSource dataSource = ConnectionPoolHolder.getDataSource();
+
+    public JDBCDaoFactory() {
+    }
+
+    @Override
+    public IGuestDao createIGuestDao() {
+        return null;
+    }
+
+    @Override
+    public IAdministratorDao createIAdministratorDao() {
+        return null;
+    }
+
+    @Override
+    public IPatientDao createIPatientDao() {
+        return null;
+    }
+
+    @Override
+    public INurseDao createINurseDao() {
+        return null;
+    }
+
+    @Override
+    public IDoctorDao createIDoctorDao() {
+        return null;
+    }
+
+    @Override
+    public IWriteOutPatientDao createIWriteOutPatientDao() {
+        return null;
+    }
+
+    @Override
+    public ISystemDao createISystemDao() {
+        dataSource = ConnectionPoolHolder.getDataSource();
+        return new JDBCSystemDao(getConnection());
+    }
+
+
+    private Connection getConnection(){
+        try {
+            return this.dataSource.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

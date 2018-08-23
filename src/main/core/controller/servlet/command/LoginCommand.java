@@ -3,9 +3,11 @@ package controller.servlet.command;
 
 
 import model.entity.Role;
+import model.service.LoginServise;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 public class LoginCommand implements ICommand {
 
@@ -23,15 +25,23 @@ public class LoginCommand implements ICommand {
             return "/index.jsp";
 
 
-        } else if (login.equals("admin") || password.equals("qwerty")) {
+        } else
+            try {
+                LoginServise loginServise = new LoginServise();
+                Role role = loginServise.getUser(login, password).getRole();
+                System.out.println("ROLE = " + role);
+                return "redirect:/util/administrator/administrator.jsp";
+            }catch (Exception e){
+
+            }
+            /*if (login.equals("admin") || password.equals("qwerty")) {
             session.setAttribute("role", Role.ADMINISTRATOR);
+*/
 
 
 
 
-             return "redirect:/util/administrator/administrator.jsp";
-        } else {
-            return "/index.jsp";
+
+        return "/index.jsp";
         }
-    }
 }

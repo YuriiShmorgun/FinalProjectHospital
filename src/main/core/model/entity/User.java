@@ -10,10 +10,11 @@ public class User {
     private String name_en;
     private String surname_ua;
     private String surname_en;
-    private String diagnosis_ua;
-    private String diagnosis_en;
 
-    public User(int id, String login, String password, Role role, String name_ua, String name_en, String surname_ua, String surname_en, String diagnosis_ua, String diagnosis_en) {
+    public User() {
+    }
+
+    public User(int id, String login, String password, Role role, String name_ua, String name_en, String surname_ua, String surname_en) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -22,11 +23,7 @@ public class User {
         this.name_en = name_en;
         this.surname_ua = surname_ua;
         this.surname_en = surname_en;
-        this.diagnosis_ua = diagnosis_ua;
-        this.diagnosis_en = diagnosis_en;
     }
-
-
 
     public int getId() {
         return id;
@@ -91,23 +88,6 @@ public class User {
     public void setSurname_en(String surname_en) {
         this.surname_en = surname_en;
     }
-
-    public String getDiagnosis_ua() {
-        return diagnosis_ua;
-    }
-
-    public void setDiagnosis_ua(String diagnosis_ua) {
-        this.diagnosis_ua = diagnosis_ua;
-    }
-
-    public String getDiagnosis_en() {
-        return diagnosis_en;
-    }
-
-    public void setDiagnosis_en(String diagnosis_en) {
-        this.diagnosis_en = diagnosis_en;
-    }
-
 
     @Override
     public int hashCode() {

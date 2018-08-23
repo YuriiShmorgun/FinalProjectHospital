@@ -55,7 +55,7 @@ public class Servlet extends HttpServlet {
 
 
 
-        if (page.contains("redirect")){
+        if (page.contains("redirect:")){
             response.sendRedirect(request.getContextPath() + page.replace("redirect:", ""));
         } else {
             request.getRequestDispatcher(page).forward(request, response);
