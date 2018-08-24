@@ -9,11 +9,11 @@ import java.util.Map;
 public class UserMapper implements ObjectMapper {
     @Override
     public Object extractFromResultSet(ResultSet resultSet) throws SQLException {
-        User user = new User();
-        user.setLogin(resultSet.getString("login"));
-        user.setPassword(resultSet.getString("password"));
+       // User user = new User();
+       // user.setLogin(resultSet.getString("login"));
+       // user.setPassword(resultSet.getString("password"));
 
-        return user;
+        return null;
     }
 
     @Override

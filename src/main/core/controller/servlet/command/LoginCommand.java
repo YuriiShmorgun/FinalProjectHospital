@@ -7,7 +7,6 @@ import model.service.LoginServise;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 
 public class LoginCommand implements ICommand {
 
