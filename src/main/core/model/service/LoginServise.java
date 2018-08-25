@@ -14,7 +14,6 @@ public class LoginServise {
 
         User user = iSystemDao.findByLoginPassword(login,password);
 
-
         return user;
 
 

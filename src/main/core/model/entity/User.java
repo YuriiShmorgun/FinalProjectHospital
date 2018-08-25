@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class User {
@@ -13,6 +14,17 @@ public class User {
     private String surname_uk;
     private String surname_en;
     public Role role;
+
+    private User(Builder builder) {
+        this.id = builder.id;
+        this.login = builder.login;
+        this.password = builder.password;
+        this.name_uk = builder.name_uk;
+        this.name_en = builder.name_en;
+        this.surname_uk = builder.surname_uk;
+        this.surname_en = builder.surname_en;
+        this.role = builder.role;
+    }
 
     public int getId() {
         return id;
@@ -46,16 +58,31 @@ public class User {
         return role;
     }
 
-    private User(Builder builder) {
-        this.id = builder.id;
-        this.login = builder.login;
-        this.password = builder.password;
-        this.name_uk = builder.name_uk;
-        this.name_en = builder.name_en;
-        this.surname_uk = builder.surname_uk;
-        this.surname_en = builder.surname_en;
-        this.role = builder.role;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(login, user.login);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(login);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name_uk='" + name_uk + '\'' +
+                ", name_en='" + name_en + '\'' +
+                ", surname_uk='" + surname_uk + '\'' +
+                ", surname_en='" + surname_en + '\'' +
+                ", role=" + role +
+                '}';
     }
 
     public static class Builder{

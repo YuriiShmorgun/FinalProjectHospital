@@ -49,13 +49,13 @@ public class Servlet extends HttpServlet {
         String path = request.getRequestURI();
 
         ICommand ICommand = commands.getOrDefault(path , (r)->"/index.jsp");
-        System.out.println(ICommand.getClass().getName());
+        //System.out.println(ICommand.getClass().getName());
         String page = ICommand.execute(request);
 
 
 
 
-        if (page.contains("redirect:")){
+        if (page.contains("redirect")){
             response.sendRedirect(request.getContextPath() + page.replace("redirect:", ""));
         } else {
             request.getRequestDispatcher(page).forward(request, response);
