@@ -20,13 +20,6 @@ public class SecurityFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
 
-
-
-
-
-
-
-
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
@@ -37,27 +30,16 @@ public class SecurityFilter implements Filter {
             response.sendRedirect("/index.jsp");
         }
 
-        System.out.println("Роль командира = " + role);
 
-        if (role==Role.ADMINISTRATOR){
-            /*RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/util/administrator/administrator.jsp");
-            dispatcher.forward(request, response);
-            */
+       /* if (!((String)((HttpServletRequest) servletRequest).getSession()
+                .getAttribute("login")).matches(("(?=^\\.{8,}\\$\\)((?=.*\\d)|(?=.*\\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$)"))){
+            response.sendRedirect("/index.jsp");
+        }*/
 
-        }
+
 
 
         filterChain.doFilter(request, response);
-
-
-
-
-
-
-
-
-
 
     }
 

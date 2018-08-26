@@ -2,6 +2,7 @@ package controller.servlet.command;
 
 
 
+import javafx.scene.control.Alert;
 import model.entity.Role;
 import model.service.LoginServise;
 
@@ -27,10 +28,16 @@ public class LoginCommand implements ICommand {
 
 
         if (login == null || login.equals("") || password == null || password.equals("")) {
-            return "/login.jsp";
+            return "index.jsp";
+        }
 
+        if (request.getSession().getServletContext().getAttribute(login) != null){
+            ((HttpSession) request.getSession().getServletContext().getAttribute(login)).invalidate();
+        }
 
-        }else if (login.equals("admin") || password.equals("qwerty")) {
+        request.getSession().getServletContext().setAttribute(login, request.getSession());
+
+        if (login.equals("admin") || password.equals("qwerty")) {
             request.getSession().setAttribute("role", Role.ADMINISTRATOR );
 
             LoginServise loginServise = new LoginServise();
@@ -38,13 +45,12 @@ public class LoginCommand implements ICommand {
 
             System.out.println("Role = " + role);
 
-
             return PathMapper.getPathMap().get(role).toString();
-
 
         }
         else {
-            return "list.jsp";
+
+            return "index.jsp";
         }
     }
 }

@@ -2,10 +2,7 @@ package controller.servlet;
 
 
 
-import controller.servlet.command.AddUser;
-import controller.servlet.command.ICommand;
-import controller.servlet.command.LoginCommand;
-import controller.servlet.command.SortByTitle;
+import controller.servlet.command.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +24,8 @@ public class Servlet extends HttpServlet {
         commands.put("/sortByTitle", new SortByTitle());
         commands.put("/login", new LoginCommand());
         commands.put("/addUser", new AddUser());
+        commands.put("/logout", new LogOutCommand());
+
 
     }
 

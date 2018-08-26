@@ -1,47 +1,32 @@
 package controller.servlet.command;
 
 
-import model.dao.implement.connectionPool.ConnectionJdbc;
+
+
+import model.entity.Role;
+import model.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 public class AddUser implements ICommand {
     @Override
     public String execute(HttpServletRequest request) {
 
 
-        ConnectionJdbc connectionJdbc = new ConnectionJdbc();
-        connectionJdbc.init();
+        User user = new User.Builder()
 
-        Connection connection = connectionJdbc.getConnection();
-
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM hospitaldb.user;");
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()){
-
-                System.out.println(resultSet.getString("name_en"));
-            }
+                .setLogin(request.getParameter("login"))
+                .setPassword(request.getParameter("password"))
+                .setName_uk(request.getParameter("name_uk"))
+                .setName_en(request.getParameter("name_en"))
+                .setSurname_uk(request.getParameter("surname_uk"))
+                .setSurname_en(request.getParameter("surname_en"))
+              //  .setRole(Role.valueOf(request.getParameter("role")))
+                .build();
 
 
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        connectionJdbc.close();
-
-
-
-
-
+        System.out.println(user);
 
         return "redirect:/util/administrator/addUser.jsp";
     }
