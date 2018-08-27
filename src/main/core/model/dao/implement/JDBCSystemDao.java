@@ -17,7 +17,6 @@ public class JDBCSystemDao implements ISystemDao {
     Connection connection;
 
     public JDBCSystemDao(Connection connection){
-
         this.connection = connection;
     }
 

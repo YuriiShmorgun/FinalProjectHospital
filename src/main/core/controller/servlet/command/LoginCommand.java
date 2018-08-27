@@ -4,6 +4,7 @@ package controller.servlet.command;
 
 import javafx.scene.control.Alert;
 import model.entity.Role;
+import model.entity.User;
 import model.service.LoginServise;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,7 @@ public class LoginCommand implements ICommand {
             ((HttpSession) request.getSession().getServletContext().getAttribute(login)).invalidate();
         }
 
+
         request.getSession().getServletContext().setAttribute(login, request.getSession());
 
         if (login.equals("admin") || password.equals("qwerty")) {
@@ -43,9 +45,14 @@ public class LoginCommand implements ICommand {
             LoginServise loginServise = new LoginServise();
             Role role = loginServise.getUser(login, password).getRole();
 
-            System.out.println("Role = " + role);
 
-            return PathMapper.getPathMap().get(role).toString();
+
+            String path = role.toString();
+
+            System.out.println("Role = " + path);
+
+            return (String) PathMapper.getPathMap().get(role.toString());
+            //return "redirect:/util/administrator/administrator.jsp";
 
         }
         else {
@@ -56,6 +63,56 @@ public class LoginCommand implements ICommand {
 }
 
 
+
+
+
+
+
+
+        /*if (login.equals("admin") || password.equals("qwerty")) {
+            request.getSession().setAttribute("role", Role.ADMINISTRATOR );
+
+            // TODO: 27.08.2018  .getServletContext()
+
+            */
+
+
+/*
+
+
+            System.out.println("Role = " + request.getSession().getServletContext().getAttribute(login));
+
+        try{
+            LoginServise loginServise = new LoginServise();
+
+
+            User currentUser = loginServise.getUser(login, password);
+            request.getSession().setAttribute("currentUser", currentUser);
+            System.out.println(currentUser.getRole());
+            PathMapper pathMapper = new PathMapper();
+
+
+
+            String path = (String) (pathMapper.getPathMap().get(currentUser.getRole().toString()));
+
+            System.out.println(path);
+
+           // LoginServise loginServise = new LoginServise();
+            Role role = loginServise.getUser(login, password).getRole();
+            return "redirect:/util/administrator/administrator.jsp";
+
+        }catch (Exception e){
+
+
+            return "index.jsp";
+        }
+    }
+
+
+}
+
+
+*/
 
 
 

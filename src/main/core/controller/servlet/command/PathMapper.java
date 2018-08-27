@@ -8,16 +8,20 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class PathMapper {
 
+    private static Map<String, String> map = new ConcurrentHashMap();
+
 
     public static Map getPathMap(){
-        Map<Role, String> map = new ConcurrentHashMap();
 
-        map.put(Role.GUEST, "");
+      /*  map.put(Role.GUEST, "");
         map.put(Role.PATIENT, "");
         map.put(Role.WRITE_OUT_PATIENT, "");
         map.put(Role.NURSE, "");
-        map.put(Role.DOCTOR, "");
-        map.put(Role.ADMINISTRATOR, "redirect:/util/administrator/administrator.jsp");
+        map.put(Role.DOCTOR, "");*/
+        map.put(Role.ADMINISTRATOR.toString(), "redirect:/util/administrator/administrator.jsp");
+
+
+        System.out.println(map.get("ADMINISTRATOR"));
 
         return map;
     }

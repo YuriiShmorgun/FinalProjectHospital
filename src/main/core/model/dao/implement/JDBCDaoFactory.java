@@ -21,7 +21,11 @@ public class JDBCDaoFactory extends DaoFactory {
 
     @Override
     public IAdministratorDao createIAdministratorDao() {
-        return null;
+
+        dataSource = ConnectionPoolHolder.getDataSource();
+        return new JDBCAdministratorDao(getConnection());
+
+
     }
 
     @Override

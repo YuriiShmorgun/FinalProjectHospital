@@ -1,5 +1,3 @@
-<!doctype html>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -10,30 +8,17 @@
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="resource" var="rb"/>
 
+<!DOCTYPE html>
 <html>
+
+
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-    <link rel="icon" type="image/ico" href="/favicon.ico"/>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <%--<link href="source/bootstrap/css/bootstrap.min.css" rel="stylesheet">--%>
-
-    <!-- Custom styles for this template -->
-   <%-- <link href="https://getbootstrap.com/docs/4.1/examples/sign-in/signin.css" rel="stylesheet">--%>
-    <link href="css/signin.css" rel="stylesheet">
-
-
     <title>SunMedicom</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,12 +26,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
-
 </head>
-<body class="text-center">
-
-<%--<jsp:include page="util/element/header.jsp" />--%>
+<body>
 <div class="header">
     <div class="container">
         <div class="row">
@@ -86,7 +67,7 @@
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                              <a href="/logout"><fmt:message key="refresh" bundle="${rb}" /></a>
+                                <a href="/logout"><fmt:message key="logout" bundle="${rb}" /></a>
                         </ul>
                         </li>
                         </ul>
@@ -99,46 +80,10 @@
 
 
 
-
-
-
-<form method="post" action="${pageContext.request.contextPath}/login" class="form-signin">
-<div>
-        <h1 class="h3 mb-3 font-weight-normal"><fmt:message key="SIGN_IN" bundle="${rb}" /></h1>
-    <label for="login" class="sr-only">Login</label>
-        <input name="login" type="login" id="login" class="form-control" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> required autofocus <%--pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"--%>>
-    <label for="inputPassword" class="sr-only">Password</label>
-        <input name="password" type="password" id="inputPassword" class="form-control" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" /> required autofocus>
-
-
-
-            <div class="mb-4">
-
-
-            </div>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit"><fmt:message key="ENTER" bundle="${rb}" /></button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
-</div>
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="source/bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
 </body>
 </html>
-
-
-

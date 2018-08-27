@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ page isELIgnored="false" %>
 
@@ -7,87 +8,163 @@
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="resource" var="rb"/>
 
+
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>SunMedicom</title>
+
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="../../css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<%--<form method="post" action="${pageContext.request.contextPath}/addUser" class="addUser">
 
-    <h1><fmt:message key="SIGN_IN" bundle="${rb}" /></h1>
-    <label for="login" class="sr-only">Login</label>
-    <input name="login" type="login" id="login" class="form-control" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input name="password" type="password" id="inputPassword" class="form-control" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" /> required autofocus>
+<jsp:include page="../element/header.jsp" />
 
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> <fmt:message key="REMEMBER_ME" bundle="${rb}" />
-        </label>
+
+
+
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="/util/administrator/administrator.jsp"><fmt:message key="home" bundle="${rb}" /></a></li>
+                    <li><a href="/addUser"><fmt:message key="create.user" bundle="${rb}" /></a></li>
+                    <li><a href="/logout"><fmt:message key="logout" bundle="${rb}" /></a></li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="content-box-large">
+                        <div class="panel-heading">
+                            <div class="panel-title"><fmt:message key="note" bundle="${rb}" /></div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" action="">
+
+                                <fieldset>
+                                    <legend><fmt:message key="input.new.user" bundle="${rb}" /></legend>
+                                    <div class="form-group">
+                                        <label for="login" class="col-sm-2 control-label"><fmt:message key="LOGIN" bundle="${rb}" /></label>
+                                        <div class="col-sm-10">
+                                            <input name="login" type="text" class="form-control" id="login" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password" class="col-sm-2 control-label"><fmt:message key="PASSWORD" bundle="${rb}" /></label>
+                                        <div class="col-sm-10">
+                                            <input name="password" type="text" class="form-control" id="password" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" />>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="text-field">Auto Complete</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" placeholder="Type somethine..." type="text" list="list">
+                                            <datalist id="list">
+                                                <option value="Alexandra"></option>
+                                                <option value="Alice"></option>
+                                                <option value="Anastasia"></option>
+                                                <option value="Avelina"></option>
+                                                <option value="Basilia"></option>
+                                                <option value="Beatrice"></option>
+                                                <option value="Cassandra"></option>
+                                                <option value="Cecil"></option>
+                                                <option value="Clemencia"></option>
+                                                <option value="Desiderata"></option>
+                                                <option value="Dionisia"></option>
+
+                                            </datalist>
+                                            <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Text Field</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Text Field</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Text Field</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Text Field</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary" type="submit">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--  Page content -->
+            </div>
+        </div>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit"><fmt:message key="ENTER" bundle="${rb}" /></button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
-</form>--%>
 
-<div class="mb-4">
-    <form>
-        <input name="language" type="image" value="en_US"
-        ${language=='en_US' ? 'selected' : '' } src = "http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/128/United-States-Flag-icon.png" style="height: 30px; width: 30px;">
-        <input name="language" type="image" value="uk_UA"
-        ${language=='uk_UA' ? 'selected' : '' } src = "http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/128/Ukraine-Flag-icon.png" style="height: 30px; width: 30px;">
-    </form>
-</div>
-
-<a href="${pageContext.request.contextPath}/logout">Log out</a>
-
-<form method="post" action="${pageContext.request.contextPath}/addUser" >
-    <label><fmt:message key="input.new.user" bundle="${rb}" /></label>
-
-    <br>
-    <%--<input name="login" type="text" value="${own_food_name}" required>--%>
-    <input name="login" type="text" placeholder=<fmt:message key="LOGIN" bundle="${rb}" />>
-    <br>
-
-    <br>
-    <input name="password" type="text" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" />>
-    <br>
-
-    <br>
-    <input name="name_uk" type="text" placeholder=<fmt:message key="name.uk" bundle="${rb}" />>
-    <br>
-
-    <br>
-    <input name="name_en" type="text" placeholder=<fmt:message key="name.eng" bundle="${rb}" />>
-    <br>
-
-    <br>
-    <input name="surname_uk" type="text" placeholder=<fmt:message key="surname.uk" bundle="${rb}" />>
-    <br>
-
-    <br>
-    <input name="surname_en" type="text" placeholder=<fmt:message key="surname.eng" bundle="${rb}"/>>
-    <br>
-    <br>
-    Administrator <input type="radio" name="role" value="ADMINISTRATOR">
-    Doctor <input type="radio" name="role" value="DOCTOR">
-    Nurse <input type="radio" name="role" value="NURSE">
-    Patient <input type="radio" name="role" value="PATIENT" <%--checked="checked"--%>>
-
-    <input class="button" type="submit" value=<fmt:message key="create" bundle="${rb}"/>>
-</form>
+    <jsp:include page="../element/footer.jsp" />
 
 
 
+    <!-- bootstrap-datetimepicker -->
+    <link href="vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+    <script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
-
-
-
+    <script src="js/custom.js"></script>
+    <script src="js/forms.js"></script>
 </body>
+
 </html>
-
-
-
-
-<%--16--%>
