@@ -46,6 +46,7 @@
 </head>
 <body class="text-center">
 
+
 <%--<jsp:include page="util/element/header.jsp" />--%>
 <div class="header">
     <div class="container">
@@ -98,11 +99,11 @@
 </div>
 
 
+<%--href="${pageContext.request.contextPath}/index.jsp"--%>
 
 
 
-
-<form method="post" action="${pageContext.request.contextPath}/login" class="form-signin">
+<form method="post" action="${pageContext.request.contextPath}/login" class="form-signin" >
 <div>
         <h1 class="h3 mb-3 font-weight-normal"><fmt:message key="SIGN_IN" bundle="${rb}" /></h1>
     <label for="login" class="sr-only">Login</label>

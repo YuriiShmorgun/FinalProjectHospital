@@ -17,7 +17,7 @@ public class ConnectionPoolHolder {
 
                     BasicDataSource basicDataSource = new BasicDataSource();
                     basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-                    basicDataSource.setUrl("jdbc:mysql://localhost:3306/hospitaldb");
+                    basicDataSource.setUrl("jdbc:mysql://localhost:3306/hospitaldb?characterEncoding=UTF-8");
                     basicDataSource.setUsername("root");
                     basicDataSource.setPassword("root");
                     basicDataSource.setMinIdle(5);

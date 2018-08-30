@@ -13,7 +13,7 @@ public class User {
     private String name_en;
     private String surname_uk;
     private String surname_en;
-    public Role role;
+    private Role role;
 
     private User(Builder builder) {
         this.id = builder.id;

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ page isELIgnored="false" %>
@@ -7,6 +8,9 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language: pageContext.request.locale}" scope="session"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="resource" var="rb"/>
+
+
+
 
 
 
@@ -30,31 +34,37 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
+
+   <%-- <base href="${fn:replace(req.requestURL, fn:substring(uri, 0, fn:length(uri)), req.contextPath)}" />
+    <c:url>--%>
+    <%--<c:set var="req" value="${pageContext.request}" />
+    <c:set var="baseURL" value="${req.scheme}://${req.serverName}:${req.serverPort}${req.contextPath}" />--%>
+
+
+
 </head>
 <body>
+
+<c:url value="${pageContext.request.requestURL}"/>
+<a href="${pageContext.request.contextPath}/login">Login</a>
 
 <jsp:include page="../element/header.jsp" />
 
 
 <div class="page-content">
     <div class="row">
-        <div class="col-md-2">
-            <div class="sidebar content-box" style="display: block;">
-                <ul class="nav">
-                    <!-- Main menu -->
-                    <li class="current"><a href="/util/administrator/administrator.jsp"><fmt:message key="home" bundle="${rb}" /></a></li>
-                    <li><a href="/addUser"><fmt:message key="create.user" bundle="${rb}" /></a></li>
-                    <li><a href="/logout"><fmt:message key="logout" bundle="${rb}" /></a></li>
 
+        <jsp:include page="../element/menu.jsp" />
 
-                </ul>
-            </div>
-        </div>
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-6">
                     <div class="content-box-large">
                         <div class="panel-heading">
+
+
+
                             <div class="panel-title">New vs Returning Visitors</div>
 
                             <div class="panel-options">
@@ -63,6 +73,14 @@
                             </div>
                         </div>
                         <div class="panel-body">
+
+
+
+                            <h2>${pageContext.request.requestURL}</h2>
+
+
+
+
                             Ut tristique adipiscing mauris, sit amet suscipit metus porta quis. Donec dictum tincidunt erat, eu blandit ligula. Nam sit amet dolor sapien. Quisque velit erat, congue sed suscipit vel, feugiat sit amet enim. Suspendisse interdum enim at mi tempor commodo. Sed tincidunt sed tortor eu scelerisque. Donec luctus malesuada vulputate. Nunc vel auctor metus, vel adipiscing odio. Aliquam aliquet rhoncus libero, at varius nisi pulvinar nec. Aliquam erat volutpat. Donec ut neque mi. Praesent enim nisl, bibendum vitae ante et, placerat pharetra magna. Donec facilisis nisl turpis, eget facilisis turpis semper non. Maecenas luctus ligula tincidunt iasdsd vitae ante et,
                             <br /><br />
                             Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque sed consectetur erat. Maecenas in elementum libero. Sed consequat pellentesque ultricies. Ut laoreet vehicula nisl sed placerat. Duis posuere lectus n, eros et hendrerit pellentesque, ante magna condimentum sapien, eget ultrices eros libero non orci. Etiam varius diam lectus.
@@ -120,31 +138,87 @@
                         </div>
                     </div>
                     <div class="content-box-large box-with-header">
-                        Pellentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit amet dignissim erat. Aliquam erat volutpat. Aenean laoreet metus leo, laoreet feugiat enim suscipit quis. Praesent mauris mauris, ornare vitae tincidunt sed, hendrerit eget augue. Nam nec vestibulum nisi, eu dignissim nulla.
+
+
+
+                        elentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit
                         <br /><br />
                     </div>
                 </div>
             </div>
 
-            <div class="content-box-large">
-                Vivamus suscipit dui id tristique venenatis. Integer vitae dui egestas, ultrices augue et, luctus arcu. Sed pharetra lectus eget velit consequat, in dictum felis fringilla. Suspendisse vitae rutrum urna, quis malesuada tellus. Praesent consectetur gravida feugiat. In mi orci, malesuada sit amet lectus quis, tempor sollicitudin nibh. Nam ut nibh sit amet lorem facilisis adipiscing. Mauris condimentum ornare enim ut aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus molestie massa at accumsan luctus. Aenean ultricies elementum posuere. Praesent ut felis id metus auctor egestas at id augue.
-                <br /><br />
-                Sed gravida augue risus, in lacinia augue euismod at. Vestibulum pharetra sem nibh. Mauris a enim vel sapien dignissim commodo. Ut tristique fringilla diam, vel pulvinar ligula laoreet euismod. Curabitur sit amet pretium tortor. Nullam tincidunt ultrices metus, a cursus nulla mattis in. Ut risus lorem, fringilla vitae risus quis, ullamcorper elementum nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut lobortis risus at convallis dictum. Cras luctus, leo ac vestibulum ultrices, justo mi iaculis libero, non gravida arcu erat ut augue. Ut facilisis mollis quam, ut vestibulum magna placerat eu. Integer vulputate odio a lectus tincidunt placerat viverra vel est.
-                <br /><br />
-                Ut non tincidunt felis. Aliquam urna lacus, dictum vitae dignissim id, molestie vel urna. Quisque et auctor eros, a vulputate nibh. Praesent et dictum risus, vitae congue arcu. In convallis urna non convallis suscipit. Etiam auctor erat nec felis laoreet fringilla. In quis tortor sit amet arcu tempus elementum. In urna tellus, accumsan eget feugiat quis, commodo sit amet dolor. Sed pharetra leo id dignissim tincidunt. Phasellus ac consectetur massa, eu feugiat enim. Phasellus a porta ipsum. Nullam sit amet erat ornare, interdum orci non, ullamcorper magna. Aenean dictum, mi vel tempus mattis, neque sem tincidunt turpis, vitae sollicitudin felis nulla in purus. Nunc vitae erat vitae nibh pellentesque adipiscing. In dignissim dolor vitae metus eleifend, at tincidunt massa luctus. Suspendisse id ligula non leo tincidunt tempor.
-                <br /><br />
-                Nullam vel ligula arcu. Vivamus convallis libero auctor ante imperdiet, eget adipiscing nunc egestas. Quisque suscipit egestas mi tempor ornare. Fusce a tincidunt erat. Quisque quis risus adipiscing, eleifend dolor vel, ornare risus. Curabitur leo tortor, tempor at iaculis id, elementum sed tellus. Vestibulum sagittis quis mi ut lobortis. Nullam quis mattis diam, feugiat pulvinar sem.
-                <br /><br />
-                Duis iaculis enim eu massa rhoncus, a aliquam lorem sollicitudin. Sed elementum, dolor sit amet interdum euismod, orci diam vestibulum leo, vel mattis justo sapien in justo. Aenean gravida dolor eu rutrum porta. Quisque mattis, justo quis lacinia pharetra, tortor eros aliquet dolor, et consectetur felis massa eget mi. Aenean dapibus leo erat, ac molestie nibh rhoncus sed. Nam pretium purus et elit convallis facilisis. Vivamus vitae dolor sit amet ante faucibus ornare eu non diam. Donec felis leo, malesuada eu lectus ac, facilisis posuere lorem.
-                <br /><br />
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur porta eu justo non tempor. Pellentesque auctor ultrices rhoncus. Nullam ac aliquam purus. Ut eros elit, malesuada eu purus sed, lacinia imperdiet nibh. Ut vitae pretium nisl, a suscipit elit. Duis quis ornare quam, sed aliquam diam. Nulla condimentum ligula quis dolor tempus, et dictum leo mollis. Suspendisse non cursus lorem. Cras quis cursus tellus. Fusce tincidunt nisl id odio tempor placerat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum arcu sed metus faucibus rhoncus. Vivamus porta lacinia nisl. Curabitur nec ornare est. Ut congue ullamcorper tortor, sit amet pulvinar lectus.
-                <br /><br />
-                Curabitur bibendum accumsan felis, in cursus lectus porttitor sed. Aliquam quis est sit amet libero pretium suscipit a vitae velit. Cras sollicitudin suscipit justo ac consectetur. Nam vel iaculis enim. Quisque ut tristique sem. Suspendisse feugiat dignissim nisi nec luctus. Etiam tincidunt id nulla vel mollis. Pellentesque convallis velit at luctus vulputate. Suspendisse potenti. Nam eu elementum tellus, sit amet varius tortor. Aliquam erat volutpat. In mi magna, mattis id bibendum id, viverra quis mauris.
-                <br /><br />
-                Nulla sed sem quis odio hendrerit rutrum ac sed nisl. Nulla sit amet nibh orci. Donec ornare mollis elit quis egestas. Sed euismod mollis accumsan. In dapibus arcu arcu, id condimentum lacus accumsan eget. Vivamus in sapien non nulla ultricies molestie. Fusce volutpat tellus quis mi laoreet accumsan. Nulla nec neque aliquet lorem scelerisque eleifend eu et leo.
-                <br /><br />
-                Pellentesque id arcu et odio imperdiet laoreet. Nulla sed eros risus. Sed tellus odio, faucibus et odio eu, eleifend aliquet nisl. In porttitor odio pulvinar ligula tempor, bibendum lacinia metus mattis. Donec venenatis, tellus non aliquet lobortis, magna lorem ullamcorper urna, nec posuere metus lacus non tellus. Aenean condimentum, velit ac tincidunt volutpat, dolor metus pulvinar lacus, a commodo massa dolor eget magna. Ut hendrerit lectus sit amet malesuada tincidunt.
 
+
+
+
+
+
+
+            <div class="content-box-large">
+                <div class="panel-heading">
+                    <div class="panel-title">Bootstrap dataTables</div>
+                </div>
+                <div class="panel-body">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Login</th>
+                            <th>Role</th>
+                            <th>Name_uk</th>
+                            <th>Name_en</th>
+                            <th>Surname_uk</th>
+                            <th>Surname_en</th>
+                            <th>Edit</th>
+                            <th>Bock</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <c:forEach var="note" items="${requestScope.userList}">
+                                    <tr >
+                                        <td><c:out value="${note.id}"/></td>
+                                        <td><c:out value="${note.login}"/></td>
+                                        <td><c:out value="${note.role}"/></td>
+                                        <td class="center"><c:out value="${note.name_uk}"/></td>
+                                        <td class="center"><c:out value="${note.name_en}"/></td>
+                                        <td class="center"><c:out value="${note.surname_uk}"/></td>
+                                        <td class="center"><c:out value="${note.surname_en}"/></td>
+                                        <td class="center"><button class="btn btn-warning btn-sm">Warning</button></td>
+                                        <td class="center"><button class="btn btn-danger btn-sm">Danger</button></td>
+                                    </tr>
+                        </c:forEach>
+
+
+
+
+
+
+
+
+          <%--
+                        <tr class="even gradeC">
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 5.0</td>
+                            <td>Win 95+</td>
+                            <td class="center">5</td>
+                            <td class="center">C</td>
+                        </tr>--%>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+
+
+                <%--===============--%>
             </div>
         </div>
     </div>

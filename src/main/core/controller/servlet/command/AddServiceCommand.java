@@ -1,18 +1,12 @@
 package controller.servlet.command;
 
-
-
-
-import model.entity.Role;
-import model.entity.User;
-
 import javax.servlet.http.HttpServletRequest;
 
-
-public class AddUser implements ICommand {
+public class AddServiceCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request) {
 
-        return "redirect:/util/administrator/addUser.jsp";
+            return "/WEB-INF/util/administrator/addService.jsp";
+
     }
 }

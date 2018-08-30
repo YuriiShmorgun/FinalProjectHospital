@@ -6,10 +6,10 @@ import model.service.CreateUserServise;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class NewUserCommand implements ICommand {
+public class NewServiceCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request) {
-        User user = new User.Builder()
+        /*User user = new User.Builder()
 
                 .setLogin(request.getParameter("login"))
                 .setPassword(request.getParameter("password"))
@@ -24,7 +24,7 @@ public class NewUserCommand implements ICommand {
         System.out.println("NewUserCommand"  + user);
 
         CreateUserServise createUserServise = new CreateUserServise();
-        createUserServise.addUser(user);
+        createUserServise.addUser(user);*/
 
         return "/WEB-INF/util/administrator/administrator.jsp";
     }

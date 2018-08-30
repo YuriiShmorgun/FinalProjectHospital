@@ -2,6 +2,7 @@ package controller.servlet.command;
 
 
 
+
 import javafx.scene.control.Alert;
 import model.entity.Role;
 import model.entity.User;
@@ -9,13 +10,14 @@ import model.service.LoginServise;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LoginCommand implements ICommand {
 
 
-
+    private Map<Role, ICommand> pathCommandHashMap = new HashMap<>();
 
 
 
@@ -32,17 +34,49 @@ public class LoginCommand implements ICommand {
             return "index.jsp";
         }
 
-        if (request.getSession().getServletContext().getAttribute(login) != null){
-            ((HttpSession) request.getSession().getServletContext().getAttribute(login)).invalidate();
+
+  //      UtilityCommand.checkUserIsLogged(request, login);
+
+/*
+        if (request.getServletContext().getAttribute(login) != null){
+            ((HttpSession) request.getServletContext().getAttribute(login).).invalidate();
+        }
+        request.getServletContext().setAttribute(login, request.getSession());*/
+
+        pathCommandHashMap.put(Role.ADMINISTRATOR, new AdministratorCommand());
+        pathCommandHashMap.put(Role.DOCTOR, new DoctorCommand());
+
+      //  if (login.equals("admin") || password.equals("qwerty")) {
+      //      request.getSession().setAttribute("role", Role.ADMINISTRATOR );
+
+        try {
+            LoginServise loginServise = new LoginServise();
+            Role role = loginServise.getUser(login, password).getRole();
+            System.out.println(role);
+            ICommand pathCommand = pathCommandHashMap.get(role);
+            return pathCommand.execute(request);
+        }catch (Exception e){
+            return "index.jsp";
         }
 
 
-        request.getSession().getServletContext().setAttribute(login, request.getSession());
 
-        if (login.equals("admin") || password.equals("qwerty")) {
-            request.getSession().setAttribute("role", Role.ADMINISTRATOR );
 
-            LoginServise loginServise = new LoginServise();
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*===============================================================*/
+         /*   LoginServise loginServise = new LoginServise();
             Role role = loginServise.getUser(login, password).getRole();
 
 
@@ -53,14 +87,11 @@ public class LoginCommand implements ICommand {
 
             return (String) PathMapper.getPathMap().get(role.toString());
             //return "redirect:/util/administrator/administrator.jsp";
+*/
 
-        }
-        else {
-
-            return "index.jsp";
         }
     }
-}
+
 
 
 

@@ -69,7 +69,7 @@ public class JDBCSystemDao implements ISystemDao {
                         .setRole(Role.valueOf(resultSet.getString(dbBundle.getString("ROLE"))))
                         .build();
 
-                System.out.println(user);
+              //  System.out.println(user);
 
 
             return user;

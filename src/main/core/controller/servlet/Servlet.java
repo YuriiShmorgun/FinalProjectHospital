@@ -23,9 +23,12 @@ public class Servlet extends HttpServlet {
 
         commands.put("/sortByTitle", new SortByTitle());
         commands.put("/login", new LoginCommand());
-        commands.put("/addUser", new AddUser());
+        commands.put("/addUser", new AddUserCommand());
         commands.put("/logout", new LogOutCommand());
         commands.put("/newUser", new NewUserCommand());
+        commands.put("/administrator", new AdministratorCommand());
+        commands.put("/addService", new AddServiceCommand());
+        commands.put("/newService", new NewServiceCommand());
 
 
     }
