@@ -45,13 +45,18 @@ public class LoginCommand implements ICommand {
 
         pathCommandHashMap.put(Role.ADMINISTRATOR, new AdministratorCommand());
         pathCommandHashMap.put(Role.DOCTOR, new DoctorCommand());
+        pathCommandHashMap.put(Role.PATIENT, new PatientCommand());
 
       //  if (login.equals("admin") || password.equals("qwerty")) {
       //      request.getSession().setAttribute("role", Role.ADMINISTRATOR );
 
         try {
             LoginServise loginServise = new LoginServise();
-            Role role = loginServise.getUser(login, password).getRole();
+
+            User user = loginServise.getUser(login, password);
+            request.getSession().setAttribute("user", user);
+            Role role = user.getRole();
+
             System.out.println(role);
             ICommand pathCommand = pathCommandHashMap.get(role);
             return pathCommand.execute(request);

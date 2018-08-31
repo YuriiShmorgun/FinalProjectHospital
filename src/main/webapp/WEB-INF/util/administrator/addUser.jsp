@@ -76,7 +76,7 @@
                                         <label class="col-md-2 control-label" ><fmt:message key="position" bundle="${rb}" /></label>
                                         <div class="col-md-10">
                                             <input name="role" class="form-control" placeholder=<fmt:message key="position" bundle="${rb}" /> type="text" list="list">
-                                            <datalist id="list">
+                                            <datalist id="list" >
                                                 <option value="PATIENT"></option>
                                                 <option value="NURSE"></option>
                                                 <option value="DOCTOR"></option>

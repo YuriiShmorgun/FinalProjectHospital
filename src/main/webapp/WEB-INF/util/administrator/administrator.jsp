@@ -65,7 +65,7 @@
 
 
 
-                            <div class="panel-title">New vs Returning Visitors</div>
+                            <div class="panel-title"><c:out value= '${sessionScope.user.role}' /></div>
 
                             <div class="panel-options">
                                 <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -78,7 +78,9 @@
 
                             <h2>${pageContext.request.requestURL}</h2>
 
-
+                          <%--  <fmt:message key="home" bundle="${rb}" />
+                            <c:out value="<fmt:message  bundle="${rb}" />" />--%>
+                            <c:out value= '${sessionScope.user.role}' />
 
 
                             Ut tristique adipiscing mauris, sit amet suscipit metus porta quis. Donec dictum tincidunt erat, eu blandit ligula. Nam sit amet dolor sapien. Quisque velit erat, congue sed suscipit vel, feugiat sit amet enim. Suspendisse interdum enim at mi tempor commodo. Sed tincidunt sed tortor eu scelerisque. Donec luctus malesuada vulputate. Nunc vel auctor metus, vel adipiscing odio. Aliquam aliquet rhoncus libero, at varius nisi pulvinar nec. Aliquam erat volutpat. Donec ut neque mi. Praesent enim nisl, bibendum vitae ante et, placerat pharetra magna. Donec facilisis nisl turpis, eget facilisis turpis semper non. Maecenas luctus ligula tincidunt iasdsd vitae ante et,
@@ -159,18 +161,18 @@
                     <div class="panel-title">Bootstrap dataTables</div>
                 </div>
                 <div class="panel-body">
-                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" >
                         <thead>
-                        <tr>
+                        <tr class="mySuprerClass">
                             <th>Id</th>
-                            <th>Login</th>
-                            <th>Role</th>
-                            <th>Name_uk</th>
-                            <th>Name_en</th>
-                            <th>Surname_uk</th>
-                            <th>Surname_en</th>
-                            <th>Edit</th>
-                            <th>Bock</th>
+                            <th><fmt:message key="login" bundle="${rb}" /></th>
+                            <th><fmt:message key="position" bundle="${rb}" /></th>
+                            <th><fmt:message key="name.uk" bundle="${rb}" /></th>
+                            <th><fmt:message key="name.eng" bundle="${rb}" /></th>
+                            <th><fmt:message key="surname.uk" bundle="${rb}" /></th>
+                            <th><fmt:message key="surname.eng" bundle="${rb}" /></th>
+                            <th><fmt:message key="edit" bundle="${rb}" /></th>
+                            <th><fmt:message key="block" bundle="${rb}" /></th>
 
 
                         </tr>
@@ -186,8 +188,8 @@
                                         <td class="center"><c:out value="${note.name_en}"/></td>
                                         <td class="center"><c:out value="${note.surname_uk}"/></td>
                                         <td class="center"><c:out value="${note.surname_en}"/></td>
-                                        <td class="center"><button class="btn btn-warning btn-sm">Warning</button></td>
-                                        <td class="center"><button class="btn btn-danger btn-sm">Danger</button></td>
+                                        <td class="center"><button class="btn btn-warning btn-sm"><fmt:message key="edit" bundle="${rb}" /></button></td>
+                                        <td class="center"><button class="btn btn-danger btn-sm"><fmt:message key="block" bundle="${rb}" /></button></td>
                                     </tr>
                         </c:forEach>
 

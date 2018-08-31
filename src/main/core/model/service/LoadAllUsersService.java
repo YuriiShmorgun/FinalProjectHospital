@@ -8,7 +8,7 @@ import model.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadAllUsers {
+public class LoadAllUsersService {
 
     public List<User> getAllUsers (){
         DaoFactory daoFactory = DaoFactory.getInstance();

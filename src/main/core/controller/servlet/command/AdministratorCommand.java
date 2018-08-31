@@ -1,14 +1,13 @@
 package controller.servlet.command;
 
 import model.entity.User;
-import model.service.LoadAllUsers;
+import model.service.LoadAllUsersService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class AdministratorCommand implements ICommand {
-    LoadAllUsers loadAllUsers = new LoadAllUsers();
+    LoadAllUsersService loadAllUsersService = new LoadAllUsersService();
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -17,13 +16,10 @@ public class AdministratorCommand implements ICommand {
 
 
 
-    List <User> userList = loadAllUsers.getAllUsers();
+    List <User> userList = loadAllUsersService.getAllUsers();
 
     request.setAttribute("userList", userList);
 
-    for (User user: userList){
-        System.out.println(user.getLogin());
-        }
 
     return "/WEB-INF/util/administrator/administrator.jsp";
 

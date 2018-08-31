@@ -63,12 +63,20 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(login, user.login);
+        return Objects.equals(login, user.login) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(name_uk, user.name_uk) &&
+                Objects.equals(name_en, user.name_en) &&
+                Objects.equals(surname_uk, user.surname_uk) &&
+                Objects.equals(surname_en, user.surname_en) &&
+                role == user.role;
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(login);
+
+        return Objects.hash(login, password, name_uk, name_en, surname_uk, surname_en, role);
     }
 
     @Override
@@ -146,5 +154,11 @@ public class User {
             return new User(this);
         }
     }
-
 }
+
+
+/*
+
+    public Procedure build(){
+        return new Procedure(this);
+    }*/

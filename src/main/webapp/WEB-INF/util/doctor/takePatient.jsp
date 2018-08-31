@@ -43,7 +43,7 @@
     <div class="row">
 
 
-        <jsp:include page="../element/menu.jsp" />
+        <jsp:include page="../element/doctorMenu.jsp" />
 
         <div class="col-md-10">
             <div class="row">
@@ -53,38 +53,66 @@
                             <div class="panel-title"><fmt:message key="note" bundle="${rb}" /></div>
                         </div>
                         <div class="panel-body">
-                            <form method="post" class="form-horizontal" action="${pageContext.request.contextPath}/newService" >
+                            <form method="post" class="form-horizontal" action="${pageContext.request.contextPath}/newUser" >
 
                                 <fieldset>
                                     <legend><fmt:message key="input.new.user" bundle="${rb}" /></legend>
 
                                     <div class="form-group">
-                                        <label for="procedure_uk" class="col-sm-2 control-label"><fmt:message key="LOGIN" bundle="${rb}" /></label>
+                                        <label for="login" class="col-sm-2 control-label"><fmt:message key="LOGIN" bundle="${rb}" /></label>
                                         <div class="col-sm-10">
-                                            <input name="procedure_uk" type="text" class="form-control" id="procedure_uk" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> >
+                                            <input name="login" type="text" class="form-control" id="login" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="procedure_en" class="col-sm-2 control-label"><fmt:message key="PASSWORD" bundle="${rb}" /></label>
+                                        <label for="password" class="col-sm-2 control-label"><fmt:message key="PASSWORD" bundle="${rb}" /></label>
                                         <div class="col-sm-10">
-                                            <input name="procedure_en" type="text" class="form-control" id="procedure_en" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" /> >
+                                            <input name="password" type="text" class="form-control" id="password" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" /> >
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label" ><fmt:message key="position" bundle="${rb}" /></label>
                                         <div class="col-md-10">
-                                            <input name="type" class="form-control" placeholder=<fmt:message key="position" bundle="${rb}" /> type="text" list="list">
-                                            <datalist id="list">
-                                                <option value="PILL"></option>
-                                                <option value="PROCEDURE"></option>
-                                                <option value="OPERATION"></option>
+                                            <input name="role" class="form-control" placeholder=<fmt:message key="position" bundle="${rb}" /> type="text" list="list">
+                                            <datalist id="list" >
+                                                <option value="PATIENT"></option>
+                                                <option value="NURSE"></option>
+                                                <option value="DOCTOR"></option>
+                                                <option value="ADMINISTRATOR"></option>
                                             </datalist>
                                             <p class="note"><strong><fmt:message key="attention" bundle="${rb}" />:</strong><fmt:message key="note.instruction" bundle="${rb}" /></p>
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="name_uk" class="col-sm-2 control-label"><fmt:message key="name.uk" bundle="${rb}" /></label>
+                                        <div class="col-sm-10">
+                                            <input name="name_uk" type="text" class="form-control" id="name_uk" placeholder=<fmt:message key="name.uk" bundle="${rb}" /> >
+                                        </div>
+                                    </div>
+
+                                     <div class="form-group">
+                                            <label for="name_en" class="col-sm-2 control-label"><fmt:message key="name.eng" bundle="${rb}" /></label>
+                                            <div class="col-sm-10">
+                                                <input name="name_en" type="text" class="form-control" id="name_en" placeholder=<fmt:message key="name.eng" bundle="${rb}" />>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="surname_uk" class="col-sm-2 control-label"><fmt:message key="surname.uk" bundle="${rb}" /></label>
+                                        <div class="col-sm-10">
+                                            <input name="surname_uk" type="text" class="form-control" id="surname_uk" placeholder=<fmt:message key="surname.uk" bundle="${rb}" />>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="surname_en" class="col-sm-2 control-label"><fmt:message key="surname.eng" bundle="${rb}"/></label>
+                                        <div class="col-sm-10">
+                                            <input name="surname_en" type="text" class="form-control" id="surname_en" placeholder=<fmt:message key="surname.eng" bundle="${rb}"/>>
+                                        </div>
+                                    </div>
 
                                 </fieldset>
                                 <div class="form-actions">

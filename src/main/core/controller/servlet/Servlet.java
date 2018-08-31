@@ -29,6 +29,9 @@ public class Servlet extends HttpServlet {
         commands.put("/administrator", new AdministratorCommand());
         commands.put("/addService", new AddServiceCommand());
         commands.put("/newService", new NewServiceCommand());
+        commands.put("/doctor", new DoctorCommand());
+        commands.put("/takePatient", new TakePatientCommand());
+
 
 
     }

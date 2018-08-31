@@ -1,7 +1,10 @@
 package controller.servlet.command;
 
+import model.entity.Procedure;
 import model.entity.Role;
+import model.entity.Type;
 import model.entity.User;
+import model.service.CreateProcedureServise;
 import model.service.CreateUserServise;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,23 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 public class NewServiceCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request) {
-        /*User user = new User.Builder()
-
-                .setLogin(request.getParameter("login"))
-                .setPassword(request.getParameter("password"))
-                .setName_uk(request.getParameter("name_uk"))
-                .setName_en(request.getParameter("name_en"))
-                .setSurname_uk(request.getParameter("surname_uk"))
-                .setSurname_en(request.getParameter("surname_en"))
-                .setRole(Role.valueOf(request.getParameter("role").toUpperCase()))
+        Procedure procedure = new Procedure.Builder()
+                .setProcedure_uk(request.getParameter("procedure_uk"))
+                .setProcedure_en(request.getParameter("procedure_en"))
+                .setType(Type.valueOf(request.getParameter("type").toUpperCase()))
                 .build();
+        ;
 
-        System.out.println("NewUserCommand " + request.getParameter("role"));
-        System.out.println("NewUserCommand"  + user);
+        System.out.println("NewProcedureType " + request.getParameter("type"));
+        System.out.println("NewProcedure"  + procedure);
 
-        CreateUserServise createUserServise = new CreateUserServise();
-        createUserServise.addUser(user);*/
 
-        return "/WEB-INF/util/administrator/administrator.jsp";
+        CreateProcedureServise createProcedureServise = new CreateProcedureServise();
+        createProcedureServise.addProcedure(procedure);
+
+        return "/administrator";
     }
 }

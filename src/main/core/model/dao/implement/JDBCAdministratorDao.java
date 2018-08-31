@@ -1,6 +1,7 @@
 package model.dao.implement;
 
 import model.dao.IAdministratorDao;
+import model.entity.Procedure;
 import model.entity.Role;
 import model.entity.User;
 
@@ -25,6 +26,11 @@ public class JDBCAdministratorDao implements IAdministratorDao {
 
     @Override
     public void create(Object entity) {
+
+        if (entity instanceof User){
+            System.out.println("Im user ++++++++++++++++++++++++++");
+
+
         String sql = "INSERT INTO hospitaldb.user (login, password, role, name_uk, name_en, surname_uk, surname_en) VALUES(?, ?, ?, ?, ?, ?, ?);";
 
         User user = (User) entity;
@@ -47,6 +53,25 @@ public class JDBCAdministratorDao implements IAdministratorDao {
         }catch (SQLException e){
             System.err.println("Не записался !!!!!!!!!!!!!!!!!!!!!!!!!");
         }
+        }
+
+        if (entity instanceof Procedure) {
+            System.out.println("Im Procedure ++++++++++++++++++++++++++");
+
+
+            String sql = "INSERT INTO hospitaldb.procedure (procedure_uk, procedure_en, type) VALUE(? ,?, ?);";
+            Procedure procedure = (Procedure) entity;
+
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, procedure.getProcedure_uk());
+                preparedStatement.setString(2, procedure.getProcedure_en());
+                preparedStatement.setString(3, procedure.getType().toString());
+                preparedStatement.execute();
+            } catch (SQLException e) {
+
+            }
+        }
     }
 
     @Override
@@ -57,7 +82,7 @@ public class JDBCAdministratorDao implements IAdministratorDao {
 
     @Override
     public List findAll() {
-        String sql = "SELECT * FROM hospitaldb.user;";
+        String sql = "SELECT * FROM hospitaldb.user WHERE role = 'Patient';";
         List<User> userList = new ArrayList();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
