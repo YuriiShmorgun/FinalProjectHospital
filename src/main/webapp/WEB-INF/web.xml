@@ -12,6 +12,8 @@
       <mime-type>image/x-icon</mime-type>
   </mime-mapping>
 
+
+
   <filter>
     <filter-name>SecurityFilter</filter-name>
     <filter-class>controller.filter.SecurityFilter</filter-class>

@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LoginCommand implements ICommand {
 
 
-    private Map<Role, ICommand> pathCommandHashMap = new HashMap<>();
+    private Map<Role, String> pathCommandHashMap = new HashMap<>();
 
 
 
@@ -43,12 +43,13 @@ public class LoginCommand implements ICommand {
         }
         request.getServletContext().setAttribute(login, request.getSession());*/
 
-        pathCommandHashMap.put(Role.ADMINISTRATOR, new AdministratorCommand());
-        pathCommandHashMap.put(Role.DOCTOR, new DoctorCommand());
-        pathCommandHashMap.put(Role.PATIENT, new PatientCommand());
+        pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
+        pathCommandHashMap.put(Role.DOCTOR, "redirect:/doctor");
+      //  pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
+      //  pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
 
-      //  if (login.equals("admin") || password.equals("qwerty")) {
-      //      request.getSession().setAttribute("role", Role.ADMINISTRATOR );
+
+
 
         try {
             LoginServise loginServise = new LoginServise();
@@ -57,9 +58,11 @@ public class LoginCommand implements ICommand {
             request.getSession().setAttribute("user", user);
             Role role = user.getRole();
 
+
+           // return "redirect:/administrator";
             System.out.println(role);
-            ICommand pathCommand = pathCommandHashMap.get(role);
-            return pathCommand.execute(request);
+         /*   ICommand pathCommand = pathCommandHashMap.get(role);*/
+            return pathCommandHashMap.get(role);
         }catch (Exception e){
             return "index.jsp";
         }

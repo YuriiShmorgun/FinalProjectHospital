@@ -4,5 +4,5 @@ import model.entity.User;
 
 
 
-public interface IDoctorDao extends IGenericDao<User> {
+public interface IDoctorDao extends IGenericDao {
 }

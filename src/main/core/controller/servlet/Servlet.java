@@ -4,6 +4,7 @@ package controller.servlet;
 
 import controller.servlet.command.*;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,8 @@ public class Servlet extends HttpServlet {
     private Map<String, ICommand> commands = new HashMap<>();
 
     @Override
-    public void init() throws ServletException {
+    public void init(ServletConfig servletConfig) throws ServletException {
+        super.init(servletConfig);
 
         commands.put("/sortByTitle", new SortByTitle());
         commands.put("/login", new LoginCommand());
@@ -61,7 +63,7 @@ public class Servlet extends HttpServlet {
 
 
 
-        if (page.contains("redirect")){
+        if (page.contains("redirect:")){
             response.sendRedirect(request.getContextPath() + page.replace("redirect:", ""));
         } else {
             request.getRequestDispatcher(page).forward(request, response);
@@ -74,3 +76,23 @@ public class Servlet extends HttpServlet {
 
 }
 
+
+/*
+
+в базе хранить хешкод
+какие патерны
+какие синглтон ленивый основной дабл чек
+
+депенденси энжексн  инверсион контрол -
+
+в 8 джаве абстраные класы об интерфеса
+
+хеш сет от хеш мап
+котнракт еквлс хеш код
+
+в логин свой ексепшн
+
+
+
+
+*/

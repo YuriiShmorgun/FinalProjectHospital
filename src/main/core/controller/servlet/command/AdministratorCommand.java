@@ -21,6 +21,7 @@ public class AdministratorCommand implements ICommand {
     request.setAttribute("userList", userList);
 
 
+  //  return "redirect:/administrator";
     return "/WEB-INF/util/administrator/administrator.jsp";
 
     }

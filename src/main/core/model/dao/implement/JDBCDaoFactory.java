@@ -30,6 +30,8 @@ public class JDBCDaoFactory extends DaoFactory {
 
     @Override
     public IPatientDao createIPatientDao() {
+
+
         return null;
     }
 
@@ -40,7 +42,8 @@ public class JDBCDaoFactory extends DaoFactory {
 
     @Override
     public IDoctorDao createIDoctorDao() {
-        return null;
+        dataSource = ConnectionPoolHolder.getDataSource();
+        return new JDBCDoctorDao(getConnection());
     }
 
     @Override

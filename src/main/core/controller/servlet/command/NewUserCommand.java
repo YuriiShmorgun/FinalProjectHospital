@@ -26,7 +26,9 @@ public class NewUserCommand implements ICommand {
         CreateUserServise createUserServise = new CreateUserServise();
         createUserServise.addUser(user);
 
-        //return "/WEB-INF/util/administrator/administrator.jsp";
-        return "/administrator";
+      //  return "/WEB-INF/util/administrator/administrator.jsp";
+      //  return "/administrator";
+       // return "/login";
+        return "redirect:/administrator";
     }
 }

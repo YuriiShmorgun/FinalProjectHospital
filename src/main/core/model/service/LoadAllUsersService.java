@@ -10,11 +10,15 @@ import java.util.List;
 
 public class LoadAllUsersService {
 
-    public List<User> getAllUsers (){
+    public List<User> getAllUsers () {
         DaoFactory daoFactory = DaoFactory.getInstance();
-        IAdministratorDao iAdministratorDao = daoFactory.createIAdministratorDao();
-        List<User> userList = iAdministratorDao.findAll();
-        return userList;
+        try (IAdministratorDao iAdministratorDao = daoFactory.createIAdministratorDao();) {
+            List<User> userList = iAdministratorDao.findAll();
+            return userList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
 
     }

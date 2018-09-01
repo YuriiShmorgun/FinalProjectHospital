@@ -82,7 +82,7 @@ public class JDBCAdministratorDao implements IAdministratorDao {
 
     @Override
     public List findAll() {
-        String sql = "SELECT * FROM hospitaldb.user WHERE role = 'Patient';";
+        String sql = "SELECT * FROM hospitaldb.user ;";
         List<User> userList = new ArrayList();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -127,7 +127,15 @@ public class JDBCAdministratorDao implements IAdministratorDao {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close()  {
+
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
 
     }
 }

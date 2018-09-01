@@ -11,11 +11,17 @@ public class CreateUserServise {
 public void addUser (User user) {
     DaoFactory daoFactory = DaoFactory.getInstance();
 
-    IAdministratorDao iAdministratorDao = daoFactory.createIAdministratorDao();
+    try (IAdministratorDao iAdministratorDao = daoFactory.createIAdministratorDao();) {
+        iAdministratorDao.create(user);
+    } catch (Exception e) {
+        e.printStackTrace();
 
-    iAdministratorDao.create(user);
+
+    }
+
 
 
 
     }
 }
+

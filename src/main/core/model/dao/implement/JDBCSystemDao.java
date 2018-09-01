@@ -4,10 +4,7 @@ import model.dao.ISystemDao;
 import model.entity.Role;
 import model.entity.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -98,6 +95,12 @@ public class JDBCSystemDao implements ISystemDao {
 
     @Override
     public void close() throws Exception {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
 
     }
 }

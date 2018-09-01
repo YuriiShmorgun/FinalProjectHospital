@@ -50,7 +50,12 @@
                 <div class="col-md-9">
                     <div class="content-box-large">
                         <div class="panel-heading">
-                            <div class="panel-title"><fmt:message key="note" bundle="${rb}" /></div>
+                            <div class="panel-title"><fmt:message key="note" bundle="${rb}" />
+                                    TEST
+                                <%--<%= request.getAttribute("note").toString()%>
+                                <c:out value= '${requestScope.note.login}' />--%>
+
+                            </div>
                         </div>
                         <div class="panel-body">
                             <form method="post" class="form-horizontal" action="${pageContext.request.contextPath}/newUser" >
@@ -59,6 +64,12 @@
                                     <legend><fmt:message key="input.new.user" bundle="${rb}" /></legend>
 
                                     <div class="form-group">
+
+
+
+
+                                       <%-- <c:out value="${note.login}"/>--%>
+
                                         <label for="login" class="col-sm-2 control-label"><fmt:message key="LOGIN" bundle="${rb}" /></label>
                                         <div class="col-sm-10">
                                             <input name="login" type="text" class="form-control" id="login" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> >

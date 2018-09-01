@@ -26,6 +26,6 @@ public class NewServiceCommand implements ICommand {
         CreateProcedureServise createProcedureServise = new CreateProcedureServise();
         createProcedureServise.addProcedure(procedure);
 
-        return "/administrator";
+        return "redirect:/administrator";
     }
 }

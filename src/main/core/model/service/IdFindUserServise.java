@@ -1,22 +1,21 @@
 package model.service;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import model.dao.DaoFactory;
 import model.dao.IDoctorDao;
 import model.entity.User;
 
-import java.util.List;
+public class IdFindUserServise {
 
-public class LoadAllPatientService {
+    public User getById (int id){
 
-    public List<User> getAllUsers (){
-
+        int t = id;
+        System.out.println(id);
 
         DaoFactory daoFactory = DaoFactory.getInstance();
 
         try (IDoctorDao iDoctorDao = daoFactory.createIDoctorDao();) {
-            List<User> userList = iDoctorDao.findAll();
-            return userList;
+            User user = (User) iDoctorDao.findById(id);
+            return user;
         } catch (Exception e) {
             e.printStackTrace();
             return null;

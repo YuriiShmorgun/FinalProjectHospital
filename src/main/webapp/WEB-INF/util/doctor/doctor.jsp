@@ -129,10 +129,10 @@
                 <div class="panel-heading">
                     <div class="panel-title">Bootstrap dataTables</div>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" >
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" >
                         <thead>
-                        <tr class="mySuprerClass">
+                        <tr class="mySuprerClass" >
                             <th>Id</th>
                             <th><fmt:message key="login" bundle="${rb}" /></th>
                             <th><fmt:message key="position" bundle="${rb}" /></th>
@@ -148,7 +148,7 @@
                         </thead>
                         <tbody>
 
-                        <c:forEach var="note" items="${requestScope.userList}">
+                        <c:forEach var="note" items='${requestScope.userList}' >
                             <tr >
                                 <td><c:out value="${note.id}"/></td>
                                 <td><c:out value="${note.login}"/></td>
@@ -158,11 +158,27 @@
                                 <td class="center"><c:out value="${note.surname_uk}"/></td>
                                 <td class="center"><c:out value="${note.surname_en}"/></td>
 
-                                <td class="center"><label><a href="/takePatient">
-                                    <button class="btn btn-success btn-sm"><fmt:message key="edit" bundle="${rb}" /></button>
-                                </a></label>
+
+                                    <form method="post" action="${pageContext.request.contextPath}/takePatient">
+
+                                        <input name="id" type="hidden" value="${note.id}"/>
+
+                                    <td class="btn btn-success btn-sm">
+
+                                        <input type="submit" value="Delete">
+
+                                    </td>
+                                    </form>
+
+
+
+
+
+                                <td class="center">
+                                    <button class="btn btn-danger btn-sm"><fmt:message key="block" bundle="${rb}" />
+                                    </button>
                                 </td>
-                                <td class="center"><button class="btn btn-danger btn-sm"><fmt:message key="block" bundle="${rb}" /></button></td>
+
                             </tr>
                         </c:forEach>
 
@@ -173,26 +189,12 @@
 
 
 
-                        <%--
-                                      <tr class="even gradeC">
-                                          <td>Trident</td>
-                                          <td>Internet
-                                              Explorer 5.0</td>
-                                          <td>Win 95+</td>
-                                          <td class="center">5</td>
-                                          <td class="center">C</td>
-                                      </tr>--%>
 
                         </tbody>
                     </table>
                 </div>
             </div>
 
-
-
-
-
-                <%--===============--%>
             </div>
         </div>
     </div>

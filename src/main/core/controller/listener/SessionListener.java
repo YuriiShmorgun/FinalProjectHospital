@@ -3,6 +3,7 @@ package controller.listener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import java.util.HashSet;
+import java.util.Set;
 
 public class SessionListener implements HttpSessionListener {
 
@@ -11,10 +12,14 @@ public class SessionListener implements HttpSessionListener {
     }
 
     @Override
+
     public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
-        HashSet<String> loggedUsers = (HashSet<String>) httpSessionEvent
-                .getSession().getServletContext()
+        //todo sneaky throws +lomboc
+        Set<String> loggedUsers = (HashSet<String>) httpSessionEvent
+                .getSession()
+                .getServletContext()
                 .getAttribute("loggedUsers");
+
         String userName = (String) httpSessionEvent.getSession()
                 .getAttribute("userName");
         loggedUsers.remove(userName);

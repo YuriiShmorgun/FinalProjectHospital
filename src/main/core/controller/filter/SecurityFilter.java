@@ -29,17 +29,6 @@ public class SecurityFilter implements Filter {
         if (role == null){
             response.sendRedirect("/index.jsp");
         }
-        if (servletPath.matches("doctor") && (role != Role.DOCTOR)){
-            response.sendRedirect("/logout");
-        }
-
-
-
-       /* if (!((String)((HttpServletRequest) servletRequest).getSession()
-                .getAttribute("login")).matches(("(?=^\\.{8,}\\$\\)((?=.*\\d)|(?=.*\\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$)"))){
-            response.sendRedirect("/index.jsp");
-        }*/
-
 
 
 
