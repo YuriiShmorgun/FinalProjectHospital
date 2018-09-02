@@ -44,13 +44,6 @@ public class JDBCSystemDao implements ISystemDao {
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            //Statement statement = connection.createStatement();
-          //  ResultSet resultSet = statement.executeQuery("SELECT * FROM hospitaldb.user WHERE login = '" + login + "' and password = '"+password+"';");
-
-
-
-
-            //ResultSet resultSet = statement.executeQuery("SELECT * FROM hospitaldb.user WHERE login = 'doc' and password = 'q';");
 
             resultSet.next();
 

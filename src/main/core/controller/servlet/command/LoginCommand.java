@@ -37,11 +37,16 @@ public class LoginCommand implements ICommand {
 
   //      UtilityCommand.checkUserIsLogged(request, login);
 
-/*
+
         if (request.getServletContext().getAttribute(login) != null){
-            ((HttpSession) request.getServletContext().getAttribute(login).).invalidate();
+
+                     System.out.println((HttpSession)request.getServletContext().getAttribute(login));
+
+            ((HttpSession) request.getServletContext().getAttribute(login)).invalidate();
         }
-        request.getServletContext().setAttribute(login, request.getSession());*/
+        request.getServletContext().setAttribute(login, request.getSession());
+
+                     System.out.println(request.getServletContext().getAttribute(login));
 
         pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
         pathCommandHashMap.put(Role.DOCTOR, "redirect:/doctor");
@@ -55,8 +60,9 @@ public class LoginCommand implements ICommand {
             LoginServise loginServise = new LoginServise();
 
             User user = loginServise.getUser(login, password);
-            request.getSession().setAttribute("user", user);
             Role role = user.getRole();
+            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("role", role);
 
 
            // return "redirect:/administrator";

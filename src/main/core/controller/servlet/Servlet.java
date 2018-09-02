@@ -33,6 +33,7 @@ public class Servlet extends HttpServlet {
         commands.put("/newService", new NewServiceCommand());
         commands.put("/doctor", new DoctorCommand());
         commands.put("/takePatient", new TakePatientCommand());
+        commands.put("/newDiagnosis", new NewDiagnosisCommand());
 
 
 

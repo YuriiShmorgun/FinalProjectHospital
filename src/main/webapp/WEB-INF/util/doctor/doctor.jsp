@@ -148,20 +148,21 @@
                         </thead>
                         <tbody>
 
-                        <c:forEach var="note" items='${requestScope.userList}' >
+                        <c:forEach var="user" items='${requestScope.userList}' >
                             <tr >
-                                <td><c:out value="${note.id}"/></td>
-                                <td><c:out value="${note.login}"/></td>
-                                <td><c:out value="${note.role}"/></td>
-                                <td class="center"><c:out value="${note.name_uk}"/></td>
-                                <td class="center"><c:out value="${note.name_en}"/></td>
-                                <td class="center"><c:out value="${note.surname_uk}"/></td>
-                                <td class="center"><c:out value="${note.surname_en}"/></td>
+                                <td><c:out value="${user.id}"/></td>
+                                <td><c:out value="${user.login}"/></td>
+                                <td><c:out value="${user.role}"/></td>
+                                <td class="center"><c:out value="${user.name_uk}"/></td>
+                                <td class="center"><c:out value="${user.name_en}"/></td>
+                                <td class="center"><c:out value="${user.surname_uk}"/></td>
+                                <td class="center"><c:out value="${user.surname_en}"/></td>
 
 
                                     <form method="post" action="${pageContext.request.contextPath}/takePatient">
 
-                                        <input name="id" type="hidden" value="${note.id}"/>
+                                        <input name="id" type="hidden" value="${user.id}"/>
+                                       <%-- <input name="id" type="hidden" value="${session.setAttribute.user.id}"/>--%>
 
                                     <td class="btn btn-success btn-sm">
 

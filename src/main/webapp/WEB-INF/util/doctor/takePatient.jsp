@@ -38,6 +38,12 @@
 
 
 
+<td><c:out value="${user.role}"/></td>
+<td class="center"></td>
+<td class="center"></td>
+<td class="center"></td>
+<td class="center"></td>
+
 
 <div class="page-content">
     <div class="row">
@@ -46,9 +52,10 @@
         <jsp:include page="../element/doctorMenu.jsp" />
 
         <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="content-box-large">
+
+           <%--         <div class="content-box-large">--%>
+
+
                         <div class="panel-heading">
                             <div class="panel-title"><fmt:message key="note" bundle="${rb}" />
                                     TEST
@@ -58,86 +65,173 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form method="post" class="form-horizontal" action="${pageContext.request.contextPath}/newUser" >
 
-                                <fieldset>
-                                    <legend><fmt:message key="input.new.user" bundle="${rb}" /></legend>
-
-                                    <div class="form-group">
-
+                            <div class="row">
+                                <div class="col-md-10 panel-info">
+                                    <div class="content-box-header">
+                                        <div class="panel-title">New vs Returning Visitors</div>
 
 
-
-                                       <%-- <c:out value="${note.login}"/>--%>
-
-                                        <label for="login" class="col-sm-2 control-label"><fmt:message key="LOGIN" bundle="${rb}" /></label>
-                                        <div class="col-sm-10">
-                                            <input name="login" type="text" class="form-control" id="login" placeholder=<fmt:message key="LOGIN" bundle="${rb}" /> >
-                                        </div>
                                     </div>
+                                    <div class="content-box-large box-with-header">
+                                        <div>
 
-                                    <div class="form-group">
-                                        <label for="password" class="col-sm-2 control-label"><fmt:message key="PASSWORD" bundle="${rb}" /></label>
-                                        <div class="col-sm-10">
-                                            <input name="password" type="text" class="form-control" id="password" placeholder=<fmt:message key="PASSWORD" bundle="${rb}" /> >
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" ><fmt:message key="position" bundle="${rb}" /></label>
-                                        <div class="col-md-10">
-                                            <input name="role" class="form-control" placeholder=<fmt:message key="position" bundle="${rb}" /> type="text" list="list">
-                                            <datalist id="list" >
-                                                <option value="PATIENT"></option>
-                                                <option value="NURSE"></option>
-                                                <option value="DOCTOR"></option>
-                                                <option value="ADMINISTRATOR"></option>
-                                            </datalist>
-                                            <p class="note"><strong><fmt:message key="attention" bundle="${rb}" />:</strong><fmt:message key="note.instruction" bundle="${rb}" /></p>
-                                        </div>
-                                    </div>
+                                            <hr>
 
-                                    <div class="form-group">
-                                        <label for="name_uk" class="col-sm-2 control-label"><fmt:message key="name.uk" bundle="${rb}" /></label>
-                                        <div class="col-sm-10">
-                                            <input name="name_uk" type="text" class="form-control" id="name_uk" placeholder=<fmt:message key="name.uk" bundle="${rb}" /> >
-                                        </div>
-                                    </div>
 
-                                     <div class="form-group">
-                                            <label for="name_en" class="col-sm-2 control-label"><fmt:message key="name.eng" bundle="${rb}" /></label>
-                                            <div class="col-sm-10">
-                                                <input name="name_en" type="text" class="form-control" id="name_en" placeholder=<fmt:message key="name.eng" bundle="${rb}" />>
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label for="surname_uk" class="col-sm-2 control-label"><fmt:message key="surname.uk" bundle="${rb}" /></label>
-                                        <div class="col-sm-10">
-                                            <input name="surname_uk" type="text" class="form-control" id="surname_uk" placeholder=<fmt:message key="surname.uk" bundle="${rb}" />>
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label for="surname_en" class="col-sm-2 control-label"><fmt:message key="surname.eng" bundle="${rb}"/></label>
-                                        <div class="col-sm-10">
-                                            <input name="surname_en" type="text" class="form-control" id="surname_en" placeholder=<fmt:message key="surname.eng" bundle="${rb}"/>>
-                                        </div>
-                                    </div>
 
-                                </fieldset>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button class="btn btn-primary" type="submit">
-                                                <fmt:message key="create" bundle="${rb}"/>
-                                            </button>
+                                            <div class="row">
+
+
+                                                <label class="col-sm-2 control-label">Id</label>
+                                                <div class="col-sm-4">
+                                                    <span class="form-control"><c:out value="${requestScope.user.id}"/></span>
+                                                </div>
+
+
+
+
+                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <div class="col-sm-4">
+                                                    <span class="form-control"><c:out value="${requestScope.user.login}"/></span>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="row">
+
+
+                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <div class="col-sm-4">
+                                                    <span class="form-control"><c:out value="${requestScope.user.name_uk}"/></span>
+                                                </div>
+
+
+
+
+                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <div class="col-sm-4">
+                                                    <span class="form-control"><c:out value="${requestScope.user.name_en}"/></span>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <hr>
+
+
+                                            <div class="row">
+
+
+                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <div class="col-sm-4">
+                                                    <span class="form-control"><c:out value="${requestScope.user.surname_uk}"/></span>
+                                                </div>
+
+
+
+
+                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <div class="col-sm-4">
+                                                    <span class="form-control"><c:out value="${requestScope.user.surname_en}"/></span>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <hr>
+                                            <form method="post"  action="${pageContext.request.contextPath}/newDiagnosis" >
+                                                <div class="row">
+
+
+
+
+
+                                                <label class="col-sm-2 control-label">Textarea</label>
+                                                <div class="col-sm-4">
+                                                    <textarea name="diagnosis_ua" class="form-control" placeholder="Textarea" rows="6"></textarea>
+                                                </div>
+
+
+
+                                                <label class="col-sm-2 control-label">Textarea</label>
+                                                <div class="col-sm-4">
+                                                    <textarea name="diagnosis_en" class="form-control" placeholder="Textarea" rows="6"></textarea>
+                                                </div>
+                                                </div>
+
+
+
+
+
+
+
+                                            <hr>
+                                                <div class="row">
+                                                    <div  style="margin-top:50px;">
+                                                        <button type="submit" type="button" class="btn btn-lg btn-block btn-primary">Block level Primary button</button>
+                                                        <button type="button" class="btn btn-lg btn-block btn-default">Block level Default button</button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                            <%--<div class="row">
+
+
+                                                <label class="control-label col-md-2">Default Select</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control">
+                                                        <option>Amsterdam</option>
+                                                        <option>Atlanta</option>
+                                                        <option>Baltimore</option>
+                                                        <option>Miami</option>
+                                                        <option>Minneapolis</option>
+                                                    </select>
+                                                </div>
+
+
+
+
+                                                <label class="control-label col-md-2">Default Select</label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control">
+                                                        <option>Amsterdam</option>
+                                                        <option>Atlanta</option>
+                                                        <option>Baltimore</option>
+                                                        <option>Miami</option>
+                                                        <option>Minneapolis</option>
+                                                    </select>
+                                                </div>
+
+
+
+
+                                            </div>--%>
+
+
+
+
+
+
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
+                            </div>
+
+
                 </div>
             </div>
         </div>

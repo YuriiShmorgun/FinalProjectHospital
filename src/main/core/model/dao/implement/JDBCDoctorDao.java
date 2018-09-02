@@ -39,13 +39,14 @@ public class JDBCDoctorDao implements IDoctorDao {
     public Object findById(int idInt) {
 
         System.out.println(idInt);
-        String sql = "SELECT * FROM hospitaldb.user WHERE role = 'Patient'AND iduser = 4;";
+        String sql = "SELECT * FROM hospitaldb.user WHERE role = 'Patient'AND iduser = ?;";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,idInt);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
+            resultSet.next();
 
 
                 User userFromSQL = new User.Builder()
@@ -55,10 +56,10 @@ public class JDBCDoctorDao implements IDoctorDao {
                         .setName_en(resultSet.getString(dbBundle.getString("NAME_EN")))
                         .setSurname_uk(resultSet.getString(dbBundle.getString("SURNAME_UK")))
                         .setSurname_en(resultSet.getString(dbBundle.getString("SURNAME_EN")))
-                        .setRole(Role.valueOf(resultSet.getString("PATIENT")))
+                        .setRole(Role.valueOf(resultSet.getString(dbBundle.getString("ROLE"))))
                         .build();
                 user = userFromSQL;
-            }
+
 
 
 
