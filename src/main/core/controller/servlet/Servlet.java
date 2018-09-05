@@ -23,7 +23,7 @@ public class Servlet extends HttpServlet {
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
 
-        commands.put("/sortByTitle", new SortByTitle());
+
         commands.put("/login", new LoginCommand());
         commands.put("/addUser", new AddUserCommand());
         commands.put("/logout", new LogOutCommand());
@@ -34,6 +34,7 @@ public class Servlet extends HttpServlet {
         commands.put("/doctor", new DoctorCommand());
         commands.put("/takePatient", new TakePatientCommand());
         commands.put("/newDiagnosis", new NewDiagnosisCommand());
+        commands.put("/diagnosisList", new DiagnosisListCommand());
 
 
 

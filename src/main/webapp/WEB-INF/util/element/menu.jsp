@@ -39,10 +39,10 @@
             <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="/administrator"><fmt:message key="home" bundle="${rb}" /></a></li>
-                    <li><a href="/addUser"><fmt:message key="create.user" bundle="${rb}" /></a></li>
-                    <li><a href="/addService"><fmt:message key="add.service" bundle="${rb}" /></a></li>
-                    <li><a href="/logout"><fmt:message key="logout" bundle="${rb}" /></a></li>
+                    <li class="current"><a href="${pageContext.request.contextPath}/administrator"><fmt:message key="home" bundle="${rb}" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/addUser"><fmt:message key="create.user" bundle="${rb}" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/addService"><fmt:message key="add.service" bundle="${rb}" /></a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout"><fmt:message key="logout" bundle="${rb}" /></a></li>
 
                 </ul>
             </div>

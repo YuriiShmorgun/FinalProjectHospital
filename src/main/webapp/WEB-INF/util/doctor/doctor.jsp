@@ -160,25 +160,23 @@
 
 
                                     <form method="post" action="${pageContext.request.contextPath}/takePatient">
+                                        <input name="patient_id" type="hidden" value="${user.id}"/>
+                                            <td class="center">
+                                                <input class="btn btn-success btn-sm" type="submit" value="Delete">
 
-                                        <input name="id" type="hidden" value="${user.id}"/>
-                                       <%-- <input name="id" type="hidden" value="${session.setAttribute.user.id}"/>--%>
-
-                                    <td class="btn btn-success btn-sm">
-
-                                        <input type="submit" value="Delete">
-
-                                    </td>
+                                            </td>
                                     </form>
 
 
 
 
+                                    <form method="post" action="${pageContext.request.contextPath}/diagnosisList">
+                                        <input name="patient_id" type="hidden" value="${user.id}"/>
+                                            <td class="center">
+                                                <input class="btn btn-danger btn-sm" type="submit" >
 
-                                <td class="center">
-                                    <button class="btn btn-danger btn-sm"><fmt:message key="block" bundle="${rb}" />
-                                    </button>
-                                </td>
+                                            </td>
+                                    </form>
 
                             </tr>
                         </c:forEach>

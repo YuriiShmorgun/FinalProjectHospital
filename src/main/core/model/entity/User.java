@@ -157,8 +157,3 @@ public class User {
 }
 
 
-/*
-
-    public Procedure build(){
-        return new Procedure(this);
-    }*/

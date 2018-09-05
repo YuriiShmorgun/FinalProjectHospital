@@ -73,8 +73,6 @@
 
 
                                     </div>
-
-
                                     <div class="content-box-large box-with-header">
                                         <div>
 
@@ -151,60 +149,7 @@
                                             </div>
 
                                             <hr>
-                                            <form method="post"  action="${pageContext.request.contextPath}/newDiagnosis" >
 
-                                                <input name="patient_id" type="hidden" value="${requestScope.user.id}"/>
-
-
-
-
-                                                <div class="row">
-
-
-
-
-
-                                                <label class="col-sm-2 control-label">Textarea</label>
-                                                <div class="col-sm-4">
-                                                    <textarea name="diagnosis_ua" class="form-control" placeholder="Textarea" rows="6"></textarea>
-                                                </div>
-
-
-
-                                                <label class="col-sm-2 control-label">Textarea</label>
-                                                <div class="col-sm-4">
-                                                    <textarea name="diagnosis_en" class="form-control" placeholder="Textarea" rows="6"></textarea>
-                                                </div>
-                                                </div>
-
-
-
-
-
-
-
-                                            <hr>
-                                                <div class="row">
-                                                    <div  style="margin-top:50px;">
-
-
-
-                                                      <%--  <c:out  value= '${sessionScope.user.role}'/>--%>
-                                                        <%--<c:out name="doctor_id" type="hidden" value= '${sessionScope.user.role}'/>--%>
-
-                                                        <button type="submit" type="button"
-
-                                                                class="btn btn-lg btn-block btn-primary">Block level Primary button</button>
-
-
-
-
-                                                        <button type="submit" class="btn btn-lg btn-block btn-default">Block level Default button</button>
-                                                    </div>
-                                                </div>
-
-                                            </form>
-                                            <%--<div class="row">
 
 
                                                 <label class="control-label col-md-2">Default Select</label>

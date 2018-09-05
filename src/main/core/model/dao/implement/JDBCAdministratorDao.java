@@ -28,7 +28,7 @@ public class JDBCAdministratorDao implements IAdministratorDao {
     public void create(Object entity) {
 
         if (entity instanceof User){
-            System.out.println("Im user ++++++++++++++++++++++++++");
+
 
 
         String sql = "INSERT INTO hospitaldb.user (login, password, role, name_uk, name_en, surname_uk, surname_en) VALUES(?, ?, ?, ?, ?, ?, ?);";

@@ -16,6 +16,7 @@ public class AdministratorCommand implements ICommand {
 
 
 
+        System.out.println(request.getSession().getAttribute("language"));
 
 
 

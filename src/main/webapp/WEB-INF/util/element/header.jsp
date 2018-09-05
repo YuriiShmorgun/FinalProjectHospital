@@ -4,7 +4,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ page isELIgnored="false" %>
 
-<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language: pageContext.request.locale}" scope="session"/>
+<c:set  var="language" value="${not empty param.language ? param.language : not empty language ? language: pageContext.request.locale}" scope="session"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="resource" var="rb"/>
 
@@ -44,8 +44,10 @@
                         <form>
                             <input name="language" type="image" value="en_US"
                             ${language=='en_US' ? 'selected' : '' } src = "http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/128/United-States-Flag-icon.png" style="height: 35px; width: 35px;">
+
                             <input name="language" type="image" value="uk_UA"
                             ${language=='uk_UA' ? 'selected' : '' } src = "http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/128/Ukraine-Flag-icon.png" style="height: 35px; width: 35px;">
+
                         </form>
                     </div>
                 </div>
@@ -68,7 +70,7 @@
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="/logout"><fmt:message key="logout" bundle="${rb}" /></a>
+                                <a href="${pageContext.request.contextPath}/logout"><fmt:message key="logout" bundle="${rb}" /></a>
                         </ul>
                         </li>
                         </ul>

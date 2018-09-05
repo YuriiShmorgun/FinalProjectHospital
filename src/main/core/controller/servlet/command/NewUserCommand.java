@@ -10,7 +10,6 @@ public class NewUserCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request) {
         User user = new User.Builder()
-
                 .setLogin(request.getParameter("login"))
                 .setPassword(request.getParameter("password"))
                 .setName_uk(request.getParameter("name_uk"))
