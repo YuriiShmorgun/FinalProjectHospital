@@ -48,10 +48,10 @@ public class JDBCDoctorDao implements IDoctorDao {
                             .setId(resultSet.getInt("iddiagnosis"))
                             .setDiagnoses_uk(resultSet.getString("diagnosis_uk"))
                             .setDiagnoses_en(resultSet.getString("diagnosis_en"))
-                            .setDoctorName_uk("name_uk")
-                            .setDoctorName_en("name_en")
-                            .setDoctorSurname_uk("surname_uk")
-                            .setDoctorSurname_en("surname_en")
+                            .setDoctorName_uk(resultSet.getString("name_uk"))
+                            .setDoctorName_en(resultSet.getString("name_en"))
+                            .setDoctorSurname_uk(resultSet.getString("surname_uk"))
+                            .setDoctorSurname_en(resultSet.getString("surname_en"))
                             .build();
 
                     diagnosesInfoList.add(diagnosesInfo);
@@ -92,7 +92,7 @@ public class JDBCDoctorDao implements IDoctorDao {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
                 preparedStatement.setString(1, diagnoses.getDiagnoses_uk());
-                preparedStatement.setString(2, diagnoses.getDiagnoses_uk());
+                preparedStatement.setString(2, diagnoses.getDiagnoses_en());
                 preparedStatement.setInt(3, diagnoses.getPatient_id());
                 preparedStatement.setInt(4, diagnoses.getDoctor_id());
                 preparedStatement.setInt(5, 0);

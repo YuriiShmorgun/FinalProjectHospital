@@ -14,7 +14,7 @@ public class SessionListener implements HttpSessionListener {
     @Override
 
     public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
-        //todo sneaky throws +lomboc
+        /*//todo sneaky throws +lomboc
         Set<String> loggedUsers = (HashSet<String>) httpSessionEvent
                 .getSession()
                 .getServletContext()
@@ -23,7 +23,7 @@ public class SessionListener implements HttpSessionListener {
         String userName = (String) httpSessionEvent.getSession()
                 .getAttribute("userName");
         loggedUsers.remove(userName);
-        httpSessionEvent.getSession().setAttribute("loggedUsers", loggedUsers);
+        httpSessionEvent.getSession().setAttribute("loggedUsers", loggedUsers);*/
     }
 }
 

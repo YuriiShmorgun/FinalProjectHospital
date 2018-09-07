@@ -32,6 +32,10 @@ public class DiagnosisListCommand implements ICommand {
 
 
 
+        for(DiagnosesInfo d: diagnosesInfoList){
+            System.out.println(d);
+        }
+
         return "/WEB-INF/util/doctor/diagnosisList.jsp";
     }
 }

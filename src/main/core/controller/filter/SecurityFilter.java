@@ -18,16 +18,23 @@ public class SecurityFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
+
+
+
+
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpSession session = request.getSession();
         String servletPath = request.getServletPath();
         Role role = (Role) session.getAttribute("role");
+
+        System.out.println(request.getSession());
 
         if (servletPath.contains("index")||
                 servletPath.contains("login")||
                 servletPath.contains("sour")||
                 servletPath.contains("boot")||
                 servletPath.contains("favicon")||
+                servletPath.contains("logout")||
                 servletPath.contains("css")){
             filterChain.doFilter(servletRequest,servletResponse);
         } else if ( (servletPath.contains("administrator")) && role==Role.ADMINISTRATOR){

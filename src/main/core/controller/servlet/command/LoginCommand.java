@@ -39,15 +39,14 @@ public class LoginCommand implements ICommand {
 
         if (request.getSession().getServletContext().getAttribute(login) != null){
                      System.out.println((HttpSession)request.getServletContext().getAttribute(login));
-           ((HttpSession) request.getSession().getServletContext().getAttribute(login)).invalidate();
+           ((HttpSession) request.getServletContext().getAttribute(login)).invalidate();
         }
         request.getSession().getServletContext().setAttribute(login, request.getSession());
                      System.out.println(request.getServletContext().getAttribute(login));
 
         pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
         pathCommandHashMap.put(Role.DOCTOR, "redirect:/doctor");
-      //  pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
-      //  pathCommandHashMap.put(Role.ADMINISTRATOR, "redirect:/administrator");
+
 
 
 

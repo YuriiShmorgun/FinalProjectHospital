@@ -59,8 +59,6 @@
                         <div class="panel-heading">
                             <div class="panel-title"><fmt:message key="note" bundle="${rb}" />
                                     TEST
-                                <%--<%= request.getAttribute("note").toString()%>
-                                <c:out value= '${requestScope.note.login}' />--%>
 
                             </div>
                         </div>
@@ -149,131 +147,6 @@
                                             </div>
 
                                             <hr>
-                                           
-                                            <%--<div class="row">
-
-
-                                                <label class="control-label col-md-2">Default Select</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control">
-                                                        <option>Amsterdam</option>
-                                                        <option>Atlanta</option>
-                                                        <option>Baltimore</option>
-                                                        <option>Miami</option>
-                                                        <option>Minneapolis</option>
-                                                    </select>
-                                                </div>
-
-
-
-
-                                                <label class="control-label col-md-2">Default Select</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control">
-                                                        <option>Amsterdam</option>
-                                                        <option>Atlanta</option>
-                                                        <option>Baltimore</option>
-                                                        <option>Miami</option>
-                                                        <option>Minneapolis</option>
-                                                    </select>
-                                                </div>
-
-
-
-
-                                            </div>--%>
-
-
-
-
-
-
-
-
-
-
-                                        </div>
-                                    </div>
-                                    <%--<div class="content-box-large box-with-header">
-                                        <div>
-
-
-                                            <hr>
-
-
-
-
-
-                                            <div class="row">
-
-
-                                                <label class="col-sm-2 control-label">Id</label>
-                                                <div class="col-sm-4">
-                                                    <span class="form-control"><c:out value="${sessionScope.patient.id}"/></span>
-                                                </div>
-
-
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
-                                                <div class="col-sm-4">
-                                                    <span class="form-control"><c:out value="${sessionScope.patient.login}"/></span>
-                                                </div>
-
-
-
-                                            </div>
-
-                                            <hr>
-
-                                            <div class="row">
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
-                                                <div class="col-sm-4">
-                                                    <span class="form-control"><c:out value="${sessionScope.patient.name_uk}"/></span>
-                                                </div>
-
-
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
-                                                <div class="col-sm-4">
-                                                    <span class="form-control"><c:out value="${sessionScope.patient.name_en}"/></span>
-                                                </div>
-
-
-
-                                            </div>
-
-                                            <hr>
-
-                                            <div class="row">
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
-                                                <div class="col-sm-4">
-                                                    <span class="form-control"><c:out value="${sessionScope.patient.surname_uk}"/></span>
-                                                </div>
-
-
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
-                                                <div class="col-sm-4">
-                                                    <span class="form-control"><c:out value="${sessionScope.patient.surname_en}"/></span>
-                                                </div>
-
-
-
-                                            </div>
-
-
-
-
-
-                                            <hr>
-
 
 
 
@@ -284,20 +157,20 @@
 
                                             <div class="content-box-large">
                                                 <div class="panel-heading">
-                                                    <div class="panel-title">Диагнозы для пациента</div>
-                                                </div>
+                                                    <div class="panel-title">Bootstrap dataTables</div>
+                                                        </div>
                                                 <div class="panel-body" >
                                                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" >
                                                         <thead>
                                                         <tr class="mySuprerClass" >
                                                             <th>Id</th>
-                                                            <th><fmt:message key="login" bundle="${rb}" /></th>
-                                                            <th><fmt:message key="position" bundle="${rb}" /></th>
+                                                            <th><fmt:message key="diagnosis.ua" bundle="${rb}" /></th>
+                                                            <th><fmt:message key="diagnosis.en" bundle="${rb}" /></th>
                                                             <th><fmt:message key="name.uk" bundle="${rb}" /></th>
                                                             <th><fmt:message key="name.eng" bundle="${rb}" /></th>
                                                             <th><fmt:message key="surname.uk" bundle="${rb}" /></th>
                                                             <th><fmt:message key="surname.eng" bundle="${rb}" /></th>
-                                                            <th><fmt:message key="edit" bundle="${rb}" /></th>
+                                                            <th><fmt:message key="d" bundle="${rb}" /></th>
                                                             <th><fmt:message key="block" bundle="${rb}" /></th>
 
 
@@ -307,16 +180,13 @@
 
                                                         <c:forEach var="diagnosesInfoList" items='${requestScope.diagnosesInfoList}' >
                                                             <tr >
-                                                                <td>
-                                                                    <c:out value="${diagnosesInfoList.Diagnoses_uk}"/>
-                                                                    &lt;%&ndash;<c:out value="${diagnosesInfoList.Diagnoses_en}"/>&ndash;%&gt;
-                                                                </td>
-                                                                &lt;%&ndash;<td><c:out value="${user.login}"/></td>
-                                                                <td><c:out value="${user.role}"/></td>
-                                                                <td class="center"><c:out value="${user.name_uk}"/></td>
-                                                                <td class="center"><c:out value="${user.name_en}"/></td>
-                                                                <td class="center"><c:out value="${user.surname_uk}"/></td>
-                                                                <td class="center"><c:out value="${user.surname_en}"/></td>&ndash;%&gt;
+                                                                <td><c:out value="${diagnosesInfoList.id}"/></td>
+                                                                <td><c:out value="${diagnosesInfoList.diagnoses_uk}"/></td>
+                                                                <td><c:out value="${diagnosesInfoList.diagnoses_en}"/></td>
+                                                                <td class="center"><c:out value="${diagnosesInfoList.name_uk}"/></td>
+                                                                <td class="center"><c:out value="${diagnosesInfoList.name_en}"/></td>
+                                                                <td class="center"><c:out value="${diagnosesInfoList.surname_uk}"/></td>
+                                                                <td class="center"><c:out value="${diagnosesInfoList.surname_en}"/></td>
 
 
                                                                 <form method="post" action="${pageContext.request.contextPath}/takePatient">
@@ -354,39 +224,6 @@
                                                 </div>
                                             </div>
 
-                                           &lt;%&ndash; <--%
-                                                <label class="control-label col-md-2">Default Select</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control">
-                                                        <option>Amsterdam</option>
-                                                        <option>Atlanta</option>
-                                                        <option>Baltimore</option>
-                                                        <option>Miami</option>
-                                                        <option>Minneapolis</option>
-                                                    </select>
-                                                </div>
-
-
-
-
-                                                <label class="control-label col-md-2">Default Select</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control">
-                                                        <option>Amsterdam</option>
-                                                        <option>Atlanta</option>
-                                                        <option>Baltimore</option>
-                                                        <option>Miami</option>
-                                                        <option>Minneapolis</option>
-                                                    </select>
-                                                </div>
-
-
-
-
-                                            </div>&ndash;%&gt;&ndash;%&gt;
-
-
-
 
 
 
@@ -395,7 +232,8 @@
 
 
                                         </div>
-                                    </div>--%>
+                                    </div>
+
                                 </div>
                             </div>
 

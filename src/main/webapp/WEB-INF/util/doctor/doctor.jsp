@@ -39,7 +39,7 @@
 <div class="page-content">
     <div class="row">
 
-
+        <jsp:include page="../element/doctorMenu.jsp" />
 
         <div class="col-md-10">
             <div class="row">
@@ -127,7 +127,7 @@
 
             <div class="content-box-large">
                 <div class="panel-heading">
-                    <div class="panel-title">Bootstrap dataTables</div>
+                    <div class="panel-title"><fmt:message key="list.of.patients" bundle="${rb}" /></div>
                 </div>
                 <div class="panel-body" >
                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" >
@@ -140,8 +140,8 @@
                             <th><fmt:message key="name.eng" bundle="${rb}" /></th>
                             <th><fmt:message key="surname.uk" bundle="${rb}" /></th>
                             <th><fmt:message key="surname.eng" bundle="${rb}" /></th>
-                            <th><fmt:message key="edit" bundle="${rb}" /></th>
-                            <th><fmt:message key="block" bundle="${rb}" /></th>
+                            <th><fmt:message key="diagnose" bundle="${rb}" /></th>
+                            <th><fmt:message key="current.diagnoses" bundle="${rb}" /></th>
 
 
                         </tr>
@@ -162,7 +162,7 @@
                                     <form method="post" action="${pageContext.request.contextPath}/takePatient">
                                         <input name="patient_id" type="hidden" value="${user.id}"/>
                                             <td class="center">
-                                                <input class="btn btn-success btn-sm" type="submit" value="Delete">
+                                                <input class="btn btn-success" type="submit" value=<fmt:message key="diagnose" bundle="${rb}" /> >
 
                                             </td>
                                     </form>
@@ -173,7 +173,7 @@
                                     <form method="post" action="${pageContext.request.contextPath}/diagnosisList">
                                         <input name="patient_id" type="hidden" value="${user.id}"/>
                                             <td class="center">
-                                                <input class="btn btn-danger btn-sm" type="submit" >
+                                                <input class="btn btn-primary" type="submit" value=<fmt:message key="current.diagnoses.b" bundle="${rb}" />>
 
                                             </td>
                                     </form>

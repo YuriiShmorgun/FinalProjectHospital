@@ -204,38 +204,6 @@
                                                 </div>
 
                                             </form>
-                                            <%--<div class="row">
-
-
-                                                <label class="control-label col-md-2">Default Select</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control">
-                                                        <option>Amsterdam</option>
-                                                        <option>Atlanta</option>
-                                                        <option>Baltimore</option>
-                                                        <option>Miami</option>
-                                                        <option>Minneapolis</option>
-                                                    </select>
-                                                </div>
-
-
-
-
-                                                <label class="control-label col-md-2">Default Select</label>
-                                                <div class="col-md-4">
-                                                    <select class="form-control">
-                                                        <option>Amsterdam</option>
-                                                        <option>Atlanta</option>
-                                                        <option>Baltimore</option>
-                                                        <option>Miami</option>
-                                                        <option>Minneapolis</option>
-                                                    </select>
-                                                </div>
-
-
-
-
-                                            </div>--%>
 
 
 
