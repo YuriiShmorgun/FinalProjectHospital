@@ -48,15 +48,15 @@ public class JDBCAdministratorDao implements IAdministratorDao {
 
             preparedStatement.execute();
 
-            System.out.println("записался !!!!!!!!!!!!!!!!!!!!!!!!!");
+
 
         }catch (SQLException e){
-            System.err.println("Не записался !!!!!!!!!!!!!!!!!!!!!!!!!");
+
         }
         }
 
         if (entity instanceof Procedure) {
-            System.out.println("Im Procedure ++++++++++++++++++++++++++");
+
 
 
             String sql = "INSERT INTO hospitaldb.procedure (procedure_uk, procedure_en, type) VALUE(? ,?, ?);";
@@ -85,6 +85,7 @@ public class JDBCAdministratorDao implements IAdministratorDao {
         String sql = "SELECT * FROM hospitaldb.user ;";
         List<User> userList = new ArrayList();
         try {
+            //connection.setTransactionIsolation(3);  //todo work
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
 

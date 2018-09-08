@@ -24,18 +24,8 @@ public class DiagnosisListCommand implements ICommand {
         User user = idFindUserServise.getById((Integer) request.getSession().getAttribute("patient_id"));
         List<DiagnosesInfo> diagnosesInfoList = findAllByIdService.findPatientDiagnoses((Integer) request.getSession().getAttribute("patient_id"));
 
-        System.out.println(user);
-        System.out.println(request.getSession().getAttribute("user"));
         request.getSession().setAttribute("patient", user);
         request.setAttribute("diagnosesInfoList", diagnosesInfoList);
-
-
-
-
-        for(DiagnosesInfo d: diagnosesInfoList){
-            System.out.println(d);
-        }
-
         return "/WEB-INF/util/doctor/diagnosisList.jsp";
     }
 }

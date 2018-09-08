@@ -40,8 +40,6 @@
                 <ul class="nav">
                     <!-- Main menu -->
                     <li class="current"><a href="${pageContext.request.contextPath}doctor"><fmt:message key="home" bundle="${rb}" /></a></li>
-                    <li><a href="${pageContext.request.contextPath}/addUser"><fmt:message key="create.user" bundle="${rb}" /></a></li>
-                    <li><a href="${pageContext.request.contextPath}/addService"><fmt:message key="add.service" bundle="${rb}" /></a></li>
                     <li><a href="${pageContext.request.contextPath}/logout"><fmt:message key="logout" bundle="${rb}" /></a></li>
 
                 </ul>

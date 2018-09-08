@@ -5,7 +5,7 @@ import model.dao.implement.JDBCDaoFactory;
 
 public abstract class DaoFactory {
 
-    public static DaoFactory daoFactory;
+    public static volatile DaoFactory daoFactory;
 
     public abstract IGuestDao createIGuestDao();
     public abstract IAdministratorDao createIAdministratorDao();
@@ -19,8 +19,7 @@ public abstract class DaoFactory {
         if (daoFactory == null){
             synchronized (DaoFactory.class){
                 if (daoFactory==null){
-                    DaoFactory temp = new JDBCDaoFactory();
-                    daoFactory = temp;
+                    daoFactory = new JDBCDaoFactory();
                 }
             }
         }

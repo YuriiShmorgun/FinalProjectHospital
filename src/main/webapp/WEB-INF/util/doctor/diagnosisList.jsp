@@ -38,7 +38,7 @@
 
 
 
-<td><c:out value="${user.role}"/></td>
+
 <td class="center"></td>
 <td class="center"></td>
 <td class="center"></td>
@@ -52,14 +52,8 @@
         <jsp:include page="../element/doctorMenu.jsp" />
 
         <div class="col-md-10">
-
-           <%--         <div class="content-box-large">--%>
-
-
                         <div class="panel-heading">
                             <div class="panel-title"><fmt:message key="note" bundle="${rb}" />
-                                    TEST
-
                             </div>
                         </div>
                         <div class="panel-body">
@@ -67,7 +61,7 @@
                             <div class="row">
                                 <div class="col-md-10 panel-info">
                                     <div class="content-box-header">
-                                        <div class="panel-title">New vs Returning Visitors</div>
+                                        <div class="panel-title"><fmt:message key="patient.card" bundle="${rb}" /></div>
 
 
                                     </div>
@@ -83,81 +77,55 @@
 
                                             <div class="row">
 
-
                                                 <label class="col-sm-2 control-label">Id</label>
                                                 <div class="col-sm-4">
                                                     <span class="form-control"><c:out value="${sessionScope.patient.id}"/></span>
                                                 </div>
 
-
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <label class="col-sm-2 control-label"><fmt:message key="login" bundle="${rb}" /></label>
                                                 <div class="col-sm-4">
                                                     <span class="form-control"><c:out value="${sessionScope.patient.login}"/></span>
                                                 </div>
 
-
-
                                             </div>
 
                                             <hr>
 
                                             <div class="row">
 
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <label class="col-sm-2 control-label"><fmt:message key="name.uk" bundle="${rb}" /></label>
                                                 <div class="col-sm-4">
                                                     <span class="form-control"><c:out value="${sessionScope.patient.name_uk}"/></span>
                                                 </div>
 
-
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <label class="col-sm-2 control-label"><fmt:message key="name.eng" bundle="${rb}" /></label>
                                                 <div class="col-sm-4">
                                                     <span class="form-control"><c:out value="${sessionScope.patient.name_en}"/></span>
                                                 </div>
 
-
-
                                             </div>
 
                                             <hr>
 
-
                                             <div class="row">
 
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <label class="col-sm-2 control-label"><fmt:message key="surname.uk" bundle="${rb}" /></label>
                                                 <div class="col-sm-4">
                                                     <span class="form-control"><c:out value="${sessionScope.patient.surname_uk}"/></span>
                                                 </div>
 
-
-
-
-                                                <label class="col-sm-2 control-label">Text Field</label>
+                                                <label class="col-sm-2 control-label"><fmt:message key="surname.eng" bundle="${rb}" /></label>
                                                 <div class="col-sm-4">
                                                     <span class="form-control"><c:out value="${sessionScope.patient.surname_en}"/></span>
                                                 </div>
-
-
 
                                             </div>
 
                                             <hr>
 
-
-
-
-
-
-
-
                                             <div class="content-box-large">
                                                 <div class="panel-heading">
-                                                    <div class="panel-title">Bootstrap dataTables</div>
+                                                    <div class="panel-title"><fmt:message key="current.diagnoses" bundle="${rb}" /></div>
                                                         </div>
                                                 <div class="panel-body" >
                                                     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" >
@@ -170,8 +138,8 @@
                                                             <th><fmt:message key="name.eng" bundle="${rb}" /></th>
                                                             <th><fmt:message key="surname.uk" bundle="${rb}" /></th>
                                                             <th><fmt:message key="surname.eng" bundle="${rb}" /></th>
-                                                            <th><fmt:message key="d" bundle="${rb}" /></th>
-                                                            <th><fmt:message key="block" bundle="${rb}" /></th>
+                                                            <th><fmt:message key="recipe" bundle="${rb}" /></th>
+                                                            <th><fmt:message key="take.the.patient" bundle="${rb}" /></th>
 
 
                                                         </tr>
@@ -189,10 +157,10 @@
                                                                 <td class="center"><c:out value="${diagnosesInfoList.surname_en}"/></td>
 
 
-                                                                <form method="post" action="${pageContext.request.contextPath}/takePatient">
+                                                                <form method="post" action="${pageContext.request.contextPath}/treatmentRecipe">
                                                                     <input name="patient_id" type="hidden" value="${user.id}"/>
                                                                     <td class="center">
-                                                                        <input class="btn btn-success btn-sm" type="submit" value="Delete">
+                                                                        <input class="btn btn-success btn-sm" type="submit" value=<fmt:message key="review" bundle="${rb}" />>
 
                                                                     </td>
                                                                 </form>
@@ -203,7 +171,7 @@
                                                                 <form method="post" action="${pageContext.request.contextPath}/diagnosisList">
                                                                     <input name="patient_id" type="hidden" value="${user.id}"/>
                                                                     <td class="center">
-                                                                        <input class="btn btn-danger btn-sm" type="submit" >
+                                                                        <input class="btn btn-danger btn-sm" type="submit" value=<fmt:message key="take.the.patient" bundle="${rb}" />>
 
                                                                     </td>
                                                                 </form>

@@ -19,15 +19,7 @@ public class NewUserCommand implements ICommand {
                 .setRole(Role.valueOf(request.getParameter("role").toUpperCase()))
                 .build();
 
-        System.out.println("NewUserCommand " + request.getParameter("role"));
-        System.out.println("NewUserCommand"  + user);
-
-        CreateUserServise createUserServise = new CreateUserServise();
-        createUserServise.addUser(user);
-
-      //  return "/WEB-INF/util/administrator/administrator.jsp";
-      //  return "/administrator";
-       // return "/login";
+        new CreateUserServise().addUser(user);
         return "redirect:/administrator";
     }
 }

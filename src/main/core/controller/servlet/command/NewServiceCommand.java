@@ -1,11 +1,9 @@
 package controller.servlet.command;
 
 import model.entity.Procedure;
-import model.entity.Role;
 import model.entity.Type;
-import model.entity.User;
 import model.service.CreateProcedureServise;
-import model.service.CreateUserServise;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,15 +15,8 @@ public class NewServiceCommand implements ICommand {
                 .setProcedure_en(request.getParameter("procedure_en"))
                 .setType(Type.valueOf(request.getParameter("type").toUpperCase()))
                 .build();
-        ;
 
-        System.out.println("NewProcedureType " + request.getParameter("type"));
-        System.out.println("NewProcedure"  + procedure);
-
-
-        CreateProcedureServise createProcedureServise = new CreateProcedureServise();
-        createProcedureServise.addProcedure(procedure);
-
+        new CreateProcedureServise().addProcedure(procedure);
         return "redirect:/administrator";
     }
 }

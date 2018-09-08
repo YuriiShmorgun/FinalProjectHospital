@@ -17,11 +17,7 @@ public class NewDiagnosisCommand implements ICommand {
                 .setPatient_id(((User)request.getSession().getAttribute("patient")).getId())
                 .build();
 
-        System.out.println(diagnoses);
-
-        CreateDiagnosesService createDiagnosesService = new CreateDiagnosesService();
-        createDiagnosesService.addDiagnoses(diagnoses);
-
+        new CreateDiagnosesService().addDiagnoses(diagnoses);
         return "redirect:/doctor";
     }
 }

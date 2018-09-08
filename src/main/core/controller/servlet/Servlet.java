@@ -35,9 +35,7 @@ public class Servlet extends HttpServlet {
         commands.put("/takePatient", new TakePatientCommand());
         commands.put("/newDiagnosis", new NewDiagnosisCommand());
         commands.put("/diagnosisList", new DiagnosisListCommand());
-
-
-
+        commands.put("/treatmentRecipe", new TreatmentRecipeCommand());
     }
 
 
@@ -57,44 +55,14 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
 
         String path = request.getRequestURI();
-
         ICommand ICommand = commands.getOrDefault(path , (r)->"/index.jsp");
-        //System.out.println(ICommand.getClass().getName());
         String page = ICommand.execute(request);
-
-
-
 
         if (page.contains("redirect:")){
             response.sendRedirect(request.getContextPath() + page.replace("redirect:", ""));
         } else {
             request.getRequestDispatcher(page).forward(request, response);
         }
-        //request.getRequestDispatcher(page).forward(request,response);
     }
-
-
-
-
 }
 
-
-/*
-
-в базе хранить хешкод
-какие патерны
-какие синглтон ленивый основной дабл чек
-
-депенденси энжексн  инверсион контрол -
-
-в 8 джаве абстраные класы об интерфеса
-
-хеш сет от хеш мап
-котнракт еквлс хеш код
-
-в логин свой ексепшн
-
-
-
-
-*/

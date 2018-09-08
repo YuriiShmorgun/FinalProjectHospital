@@ -8,19 +8,8 @@ public class LogOutCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-
-
-        User user = (User) request.getSession().getAttribute("user");
-
-
-        request.getSession().getServletContext().removeAttribute(user.getLogin());
+      //  request.getSession().getServletContext().removeAttribute(((User) request.getSession().getAttribute("user")).getLogin());
         request.getSession().invalidate();
-
         return "redirect:index.jsp";
-
-
-
-
-
     }
 }

@@ -19,7 +19,7 @@
 <head>
     <title>SunMedicom</title>
 
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,8 +46,6 @@
 </head>
 <body>
 
-<c:url value="${pageContext.request.requestURL}"/>
-<a href="${pageContext.request.contextPath}/login">Login</a>
 
 <jsp:include page="../element/header.jsp" />
 
@@ -76,7 +74,7 @@
 
 
 
-                            <h2>${pageContext.request.requestURL}</h2>
+
 
                           <%--  <fmt:message key="home" bundle="${rb}" />
                             <c:out value="<fmt:message  bundle="${rb}" />" />--%>
